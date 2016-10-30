@@ -1,4 +1,17 @@
-Testing Testing
+#Setup for git
+
+Alright let's get this going. What you want to start off by doing is use the following command 
+	git version
+in cmd. This should give you version 2.7.4 or higher. If that is correct you can proceed to go online to github.com and find the repository at chirno/Hugb and fork that. Forking it will create a repository on your own github account which you will have to connect to mine so you can fetch updates. 
+After forking the repository you should press clone this repository and go to the eclipse workspace. There you can launch cmd and type git clone <link from clipboard>. This should create a local directory connected to your github repository. Then you need to add the original repository as upstream so you can fetch and merge updates. (https://help.github.com/articles/configuring-a-remote-for-a-fork/)
+After this is done you should create a branch to work on (never work on master). This can be done using the git branch <branchname> command in the git directory, and then git checkout <branchname> to move to that branch. Having done this you should type git branch to verify that you are working on the correct branch. If you are working on the correct branch then you are free to start coding and changing whatever you want. 
+
+Remember to fetch updates every now and then by going back master and following the guide here(https://help.github.com/articles/syncing-a-fork/). 
+
+Also remember to create a branch on your github page by going to the branch you're working on in cmd. Let's say we created a branch called development by using git branch development, and we want to add it to our online repository.
+	git checkout development
+	git push -u origin development
+This will create a branch called development on our github page and we can push to that page any changes we've done without messing with master.
 
 # SpringBootMVC
 Project skeleton for Software Project class in the University of Iceland.
