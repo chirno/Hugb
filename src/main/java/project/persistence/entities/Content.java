@@ -16,7 +16,7 @@ public class Content{
 		
 	}
 	
-	public Content(	String[] comments, Date date, String email,
+	public Content(	String[] comments, String email,
 					String phone, Double price, Double rating,
 					String title){
 		this.comments = comments;
