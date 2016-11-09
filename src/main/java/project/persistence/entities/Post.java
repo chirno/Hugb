@@ -1,14 +1,8 @@
 package project.persistence.entities;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "Post")
 public class Post{
 	
-	//Declare that this attribute is the id
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Long id;
 	
 	private Object category;

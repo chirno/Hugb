@@ -1,14 +1,7 @@
 package project.persistence.entities;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "Settings")
 public class Settings{
 	
-	// Declare that this attribute is the id
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     private Boolean displayEmail;
@@ -60,10 +53,7 @@ public class Settings{
     	this.displayRating = displayRating;
     }
     
-  //I don´t know how to reference objects ;/
-   // https://en.wikipedia.org/wiki/Printf_format_string
-    // Can %s display boolean??
-    @Override
+  
     public String toString(){
     	return String.format(
     			"Settings[displayEmail=%s,"

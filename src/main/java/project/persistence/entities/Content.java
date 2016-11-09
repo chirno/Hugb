@@ -1,19 +1,11 @@
 package project.persistence.entities;
 
-import java.util.Date;
-
-import javax.persistence.*;
-
-@Entity
-@Table(name = "Content")
 public class Content{
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long id;
 	
 	private String[] comments;
-	private Date date;
 	private String email;
 	private String phone;
 	private Double price;
@@ -28,7 +20,6 @@ public class Content{
 					String phone, Double price, Double rating,
 					String title){
 		this.comments = comments;
-		this.date = date;
 		this.email = email;
 		this.phone = phone;
 		this.price = price; 
@@ -52,13 +43,6 @@ public class Content{
 		this.comments = comments;
 	}
 	
-	public Date getDate(){
-		return date;
-	}
-	
-	public void setDate(Date date){
-		this.date = date;
-	}
 	
 	public String getEmail(){
 		return email;

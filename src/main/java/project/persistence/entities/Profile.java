@@ -1,19 +1,11 @@
 package project.persistence.entities;
 
-import javax.persistence.*;
 
-/**
- * The class for the Postit Note itself.
- * The system generates a table schema based on this class for this entity.
- * Be sure to annotate any entities you have with the @Entity annotation.
- */
-@Entity
-@Table(name = "Profile")
+
+
 public class Profile{
 	
-	 // Declare that this attribute is the id
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	
     private Long id;
     
     private String email;
@@ -86,9 +78,7 @@ public class Profile{
     	this.settings = settings;
     }
     
-    //I don´t know how to reference objects ;/
-    //http://docs.oracle.com/javase/7/docs/api/java/lang/String.html
-    @Override
+  
     public String toString(){
     	return String.format(
     			"Profile[email=%s, name=%s, phone=%s]", 
