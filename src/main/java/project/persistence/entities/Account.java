@@ -12,6 +12,7 @@ public class Account{
     private String phone;
     private	String password;
     private Profile profile;
+    public Post[][] posts;
     
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
@@ -27,6 +28,7 @@ public class Account{
     	this.phone = phone;
     	this.password = password;
     	this.profile = new Profile(this.id, this.email, this.name, this.phone);
+    	this.posts = new Post[1][10];
     }
     
     public long getId(){

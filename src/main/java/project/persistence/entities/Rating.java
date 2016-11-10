@@ -45,7 +45,7 @@ public class Rating{
     public String toString(){
     	return String.format(
     			"Rating[\n\t"
-    			+ "id=d,\n\t"
+    			+ "id=%d,\n\t"
     			+ "rating=%s,\n\t"
     			+ "comments=%s,\n\t"
     			+ "]", 
