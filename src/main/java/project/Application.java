@@ -23,12 +23,12 @@ public class Application extends SpringBootServletInitializer{
 
     public static void main(String[] args) {
     	
-        //SpringApplication.run(Application.class,args);
-        Account test = new Account(1,"netfang","nafn","simi","lykilord");
+        SpringApplication.run(Application.class,args);
+        //Account test = new Account(1,"netfang","nafn","simi","lykilord");
     	//Profile test = new Profile(1, "netfang", "nafn", "simi");
     	//Rating test = new Rating();
     	//Comments test = new Comments();
-    	System.out.println(test);
+    	//System.out.println(test);
         
     }
 
