@@ -13,6 +13,8 @@ public class Account{
     private String email;
     private String name;
     private String phone;
+
+
     
     /*private Profile profile;
     private Post[] posts;
@@ -29,6 +31,7 @@ public class Account{
     	this.email = email;
     	this.name = name;
     	this.phone = phone;
+
     }
     
  //--------------------Username-------------------------------
