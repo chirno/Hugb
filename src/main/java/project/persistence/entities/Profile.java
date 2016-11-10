@@ -1,18 +1,14 @@
 package project.persistence.entities;
 
-
-
-
 public class Profile{
 	
-	
-    private Long id;
+    private long id;
     
     private String email;
     private String name;
     private String phone;
-    private Object rating;
-    private Object settings;
+    private Rating rating;
+    private Settings settings;
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
@@ -20,21 +16,21 @@ public class Profile{
     	
     }
     
-    public Profile(	String email, String name, 
-    				String phone, Object rating, 
-    				Object settings){
+    public Profile(	long id, String email, String name, 
+    				String phone){
+    	this.id = id;
     	this.email=email;
     	this.name=name;
     	this.phone=phone;
-    	this.rating=rating;
-    	this.settings=settings;
+    	this.rating = new Rating(this.id);
+    	this.settings = new Settings(this.id);
     }
     
-    public Long getId(){
+    public long getId(){
     	return id;
     }
     
-    public void setId(Long id){
+    public void setId(long id){
     	this.id = id;
     }
     
@@ -62,26 +58,32 @@ public class Profile{
     	this.phone = phone;
     }
     
-    public Object getRating(){
+    public Rating getRating(){
     	return rating;
     }
     
-    public void setRating(Object rating){
+    public void setRating(Rating rating){
     	this.rating = rating;
     }
     
-    public Object getSettings(){
+    public Settings getSettings(){
     	return settings;
     }
     
-    public void setSettings(Object settings){
+    public void setSettings(Settings settings){
     	this.settings = settings;
     }
-    
-  
+      
     public String toString(){
     	return String.format(
-    			"Profile[email=%s, name=%s, phone=%s]", 
-    			email, name, phone);
+    			"Profile[\n\t"
+    			+ "id=%d,\n\t"
+    			+ "email=%s,\n\t"
+    			+ "name=%s,\n\t"
+    			+ "phone=%s,\n\t"
+    			+ "rating=%s,\n\t"
+    			+ "settings=%s,\n\t"
+    			+ "]", 
+    			id, email, name, phone, rating, settings);
     }
 }

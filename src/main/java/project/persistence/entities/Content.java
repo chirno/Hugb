@@ -2,14 +2,13 @@ package project.persistence.entities;
 
 public class Content{
 	
-	
-	private Long id;
+	private long id;
 	
 	private String[] comments;
 	private String email;
 	private String phone;
-	private Double price;
-	private Double rating;
+	private double price;
+	private double rating;
 	private String title;
 	
 	public Content(){
@@ -17,7 +16,7 @@ public class Content{
 	}
 	
 	public Content(	String[] comments, String email,
-					String phone, Double price, Double rating,
+					String phone, double price, double rating,
 					String title){
 		this.comments = comments;
 		this.email = email;
@@ -27,11 +26,11 @@ public class Content{
 		this.title = title;
 	}
 	
-	public Long getId(){
+	public long getId(){
 		return id;
 	}
 	
-	public void setId(Long id){
+	public void setId(long id){
 		this.id = id;
 	}
 	
@@ -64,7 +63,7 @@ public class Content{
 		return price;
 	}
 	
-	public void setPrice(Double price){
+	public void setPrice(double price){
 		this.price = price;
 	}
 	
@@ -72,7 +71,7 @@ public class Content{
 		return rating;
 	}
 	
-	public void setRating(Double rating){
+	public void setRating(double rating){
 		this.rating = rating;
 	}
 	
@@ -83,4 +82,17 @@ public class Content{
 	public void setTitle(String title){
 		this.title = title;
 	}
+	
+	public String toString(){
+    	return String.format(
+    			"Content[\n\t"
+    			+ "comments=%s,\n\t"
+    			+ "email=%s,\n\t"
+    			+ "phone=%s,\n\t"
+    			+ "price=%s\n\t"
+    			+ "rating=%d\n\t"
+    			+ "title=%s\n\t"
+    			+ "]", 
+    			comments, email, phone, price, rating, title);
+    }
 }

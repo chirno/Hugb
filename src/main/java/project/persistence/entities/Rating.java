@@ -2,48 +2,53 @@ package project.persistence.entities;
 
 public class Rating{
 	
-    private Long id;
+    private long id;
     
-    private Object comments;
-    private Double rating;
+    private Comments comments;
+    private double rating;
     
     public Rating(){
     	
     }
     
-    public Rating(	Object comments, Double rating){
-    	this.comments = comments;
-    	this.rating = rating;
+    public Rating(long id){
+    	this.id = id;
+    	this.comments = new Comments(this.id);
+    	this.rating = 0.0;
     }
     
-    public Long getId(){
+    public long getId(){
     	return id;
     }
     
-    public void setId(Long id){
+    public void setId(long id){
     	this.id = id;
     }
     
-    public Object getComments(){
+    public Comments getComments(){
     	return comments;
     }
     
-    public void setComments(Object comments){
+    public void setComments(Comments comments){
     	this.comments = comments;
     }
     
-    public Double getRating(){
+    public double getRating(){
     	return rating;
     }
     
-    public void setRating(Double rating){
+    public void setRating(double rating){
     	this.rating = rating;
     }
     
   
     public String toString(){
     	return String.format(
-    			"Rating[rating=%f]", 
-    			rating);
+    			"Rating[\n\t"
+    			+ "id=d,\n\t"
+    			+ "rating=%s,\n\t"
+    			+ "comments=%s,\n\t"
+    			+ "]", 
+    			id, rating, comments);
     }
 }

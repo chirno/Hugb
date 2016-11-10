@@ -1,5 +1,7 @@
 package project;
 
+import project.persistence.entities.*;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -20,7 +22,14 @@ public class Application extends SpringBootServletInitializer{
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+    	
+        //SpringApplication.run(Application.class,args);
+        Account test = new Account(1,"netfang","nafn","simi","lykilord");
+    	//Profile test = new Profile(1, "netfang", "nafn", "simi");
+    	//Rating test = new Rating();
+    	//Comments test = new Comments();
+    	System.out.println(test);
+        
     }
 
 }
