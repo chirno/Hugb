@@ -1,5 +1,7 @@
 package project.persistence.entities;
 
+import java.util.Arrays;
+
 public class Content{
 	
 	private long id;
@@ -89,10 +91,10 @@ public class Content{
     			+ "comments=%s,\n\t"
     			+ "email=%s,\n\t"
     			+ "phone=%s,\n\t"
-    			+ "price=%s\n\t"
-    			+ "rating=%d\n\t"
+    			+ "price=%f\n\t"
+    			+ "rating=%f\n\t"
     			+ "title=%s\n\t"
     			+ "]", 
-    			comments, email, phone, price, rating, title);
+    			Arrays.deepToString(comments), email, phone, price, rating, title);
     }
 }

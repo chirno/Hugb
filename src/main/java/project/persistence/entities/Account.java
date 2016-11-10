@@ -1,19 +1,20 @@
 package project.persistence.entities;
 
+import java.util.Arrays;
+
 public class Account{
 	
 	// Declare that this attribute is the id
-    
+    private static long id_counter;
     private long id;
-    
-    
+    private int count;
+      
     private String email;
     private String name;
     private String phone;
     private	String password;
     private Profile profile;
-    public Post[][] posts;
-    
+    private Post[] posts;
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
@@ -21,15 +22,19 @@ public class Account{
     	
     }
     
-    public Account(long id, String email, String name, String phone, String password){
-    	this.id = id;
+    public Account(String email, String name, String phone, String password){
+    	this.id = id_counter;
+    	id_counter++;
     	this.email = email;
     	this.name = name;
     	this.phone = phone;
     	this.password = password;
     	this.profile = new Profile(this.id, this.email, this.name, this.phone);
-    	this.posts = new Post[1][10];
+    	this.posts = new Post[5];
+    	this.count = 0;
     }
+    
+    //--------------------Id-----------------------------------
     
     public long getId(){
     	return id;
@@ -39,6 +44,8 @@ public class Account{
     	this.id = id;
     }
     
+    //--------------------Email-------------------------------
+    
     public String getEmail(){
     	return email;
     }
@@ -46,6 +53,8 @@ public class Account{
     public void setEmail(String email){
     	this.email = email;
     }
+    
+    //---------------------Name---------------------------------
     
     public String getName(){
     	return name;
@@ -55,6 +64,8 @@ public class Account{
     	this.name = name;
     }
     
+    //----------------------Phone------------------------------------
+    
     public String getPhone(){
     	return phone;
     }
@@ -62,6 +73,8 @@ public class Account{
     public void setPhone(String phone){
     	this.phone = phone;
     }
+    
+    //---------------------Password-----------------------------------
     
     public String getPassword(){
     	return password;
@@ -71,12 +84,61 @@ public class Account{
     	this.password = password;
     }
     
+    //-----------------------Profile----------------------------------
+    
     public Profile getProfile(){
     	return profile;
     }
     
     public void setProfile(Profile profile){
     	this.profile = profile;
+    }
+    
+    //------------------------Posts-------------------------------------
+    
+    public void createPost(Category category, Content content){
+    	Post ourPost = new Post(category, content);
+    	try
+    	{
+    		this.insertPost(ourPost);
+    	}
+    	catch (ArrayIndexOutOfBoundsException e)
+    	{
+    		System.out.println("You shall not post!");
+    		System.exit(1);
+    	}
+    	System.out.println("Success");
+    }
+    
+    public Post[] getPosts(){
+    	return posts;
+    }
+    
+    public void setPosts(Post[] posts){
+    	this.posts = posts;
+    }
+    
+    public void insertPost(Post post){
+    	this.posts[this.count] = post;
+    	this.incrementCount();
+    }
+    
+    //---------------------Count----------------------------------
+    
+    public int getCount(){
+    	return count;
+    }
+    
+    public void setCount(int count){
+    	this.count = count;
+    }
+    
+    public void incrementCount(){
+    	this.count++;
+    }
+    
+    public void decrementCount(){
+    	this.count--;
     }
      
   //I don´t know how to reference objects ;/
@@ -91,7 +153,8 @@ public class Account{
     			+ "phone=%s,\n\t"
     			+ "password=%s,\n\t"
     			+ "profile=%s,\n\t"
+    			+ "posts=%s\n\t"
     			+ "]", 
-    			id, name, phone, password, profile);
+    			id, name, phone, password, profile, Arrays.toString(posts));
     }
 }

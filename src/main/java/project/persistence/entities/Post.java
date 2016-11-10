@@ -1,8 +1,10 @@
 package project.persistence.entities;
 
-public class Post{
-	
+import project.Application;
 
+public class Post{
+
+	static long id_counter;
 	private long id;
 	
 	private Category category;
@@ -12,27 +14,34 @@ public class Post{
 		
 	}
 	
-	public Post(long id, Category category, Content content){
-		//this.id = ;
-		//this.category = category;
-		//this.content = content;
+	public Post(Category category, Content content){
+		this.id = id_counter;
+		id_counter++;
+		this.category = category;
+		this.content = content;
 	}
 	
-	public Long getId(){
+	//-------------------------Id----------------------------
+	
+	public long getId(){
 		return id;
 	}
 	
-	public void setId(Long id){
+	public void setId(long id){
 		this.id = id;
 	}
 	
-	public Object getCategory(){
+	//-----------------------Category---------------------------
+	
+	public Category getCategory(){
 		return category;
 	}
 	
 	public void setCategory(Category category){
 		this.category = category;
 	}
+	
+	//----------------------Content-----------------------------
 	
 	public Object getContent(){
 		return content;
@@ -42,5 +51,12 @@ public class Post{
 		this.content = content;
 	}
 	
+	//----------------------------------------------------------
+	
+	public String toString(){
+    	return String.format(
+    			"\n\t\tPost[category=%s, content=%s]\n\t", 
+    			category, content);
+    }
 	
 }
