@@ -1,53 +1,55 @@
 package project.persistence.entities;
 
-import project.Application;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "post") // If you want to specify a table name, you can do so here
 public class Post{
 
-	static long id_counter;
-	private long id;
+	// Declare that this attribute is the id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
-	private Category category;
-	private Content content;
+	private String category;
+	private String content;
 	
 	public Post(){
 		
 	}
 	
-	public Post(Category category, Content content){
-		this.id = id_counter;
-		id_counter++;
+	public Post(String category, String content){
 		this.category = category;
 		this.content = content;
 	}
 	
 	//-------------------------Id----------------------------
 	
-	public long getId(){
+	public Long getId(){
 		return id;
 	}
 	
-	public void setId(long id){
+	public void setId(Long id){
 		this.id = id;
 	}
 	
-	//-----------------------Category---------------------------
+	//-----------------------String---------------------------
 	
-	public Category getCategory(){
+	public String getCategory(){
 		return category;
 	}
 	
-	public void setCategory(Category category){
+	public void setCategory(String category){
 		this.category = category;
 	}
 	
-	//----------------------Content-----------------------------
+	//----------------------String-----------------------------
 	
-	public Object getContent(){
+	public String getContent(){
 		return content;
 	}
 	
-	public void setContent(Content content){
+	public void setContent(String content){
 		this.content = content;
 	}
 	

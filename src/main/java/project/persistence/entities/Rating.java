@@ -1,35 +1,41 @@
 package project.persistence.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "rating")
 public class Rating{
 	
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
     
-    private Comments comments;
+    private String comments;
     private double rating;
     
     public Rating(){
     	
     }
     
-    public Rating(long id){
+    public Rating(Long id, String comments, double rating){
     	this.id = id;
-    	this.comments = new Comments(this.id);
-    	this.rating = 0.0;
+    	this.comments = comments;
+    	this.rating = rating;
     }
     
-    public long getId(){
+    public Long getId(){
     	return id;
     }
     
-    public void setId(long id){
+    public void setId(Long id){
     	this.id = id;
     }
     
-    public Comments getComments(){
+    public String getComments(){
     	return comments;
     }
     
-    public void setComments(Comments comments){
+    public void setComments(String comments){
     	this.comments = comments;
     }
     

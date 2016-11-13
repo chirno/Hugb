@@ -1,55 +1,59 @@
 package project.persistence.entities;
 
-import java.util.Arrays;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "comments")
 public class Comments{
 	
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     
-    private String[] buyer;
-    private String[] user;
+    private String buyerComments;
+    private String userComments;
     
     public Comments(){
     	
     }
     
-    public Comments(long id){
+    public Comments(Long id, String buyerComments, String userComments){
     	this.id = id;
-    	this.buyer = new String[]{"test","testing"};
-    	this.user = new String[]{"test2"};
+    	this.buyerComments = buyerComments;
+        this.userComments = userComments;
     }
     
-    public long getId(){
+    public Long getId(){
     	return id;
     }
     
-    public void setId(long id){
+    public void setId(Long id){
     	this.id = id;
     }
     
-    public String[] getBuyer(){
-    	return buyer;
+    public String getBuyerComments(){
+    	return buyerComments;
     }
     
-    public void setBuyer(String[] buyer){
-    	this.buyer = buyer;
+    public void setBuyerComments(String buyerComments){
+    	this.buyerComments = buyerComments;
     }
     
-    public String[] getUser(){
-    	return user;
+    public String getUserComments(){
+    	return userComments;
     }
     
-    public void setUser(String[] user){
-    	this.user = user;
+    public void setUserComments(String userComments){
+    	this.userComments = userComments;
     }
     
     public String toString(){
     	return String.format(
     			"Comments[\n\t"
     			+ "id=%d,\n\t"
-    			+ "buyer=%s,\n\t"
+    			+ "buyerComments=%s,\n\t"
     			+ "user=%s,\n\t"
     			+ "]", 
-    			id, Arrays.deepToString(buyer), Arrays.deepToString(user));
+    			id, buyerComments, userComments);
     }
 }

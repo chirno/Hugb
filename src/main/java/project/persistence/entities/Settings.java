@@ -1,8 +1,14 @@
 package project.persistence.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "settings")
 public class Settings{
 	
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
     
     private boolean displayEmail;
     private boolean displayPhone;
@@ -14,18 +20,18 @@ public class Settings{
     	
     }
     
-    public Settings(long id){
+    public Settings(Long id){
     	this.id = id;
     	this.displayEmail = true;
     	this.displayPhone = true;
     	this.displayRating = true;
     }
     
-    public long getId(){
+    public Long getId(){
     	return id;
     }
     
-    public void setId(long id){
+    public void setId(Long id){
     	this.id = id;
     }
     

@@ -1,14 +1,20 @@
 package project.persistence.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "profile")
 public class Profile{
 	
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
     
     private String email;
     private String name;
     private String phone;
-    private Rating rating;
-    private Settings settings;
+    private double rating;
+    private String settings;
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
@@ -16,21 +22,21 @@ public class Profile{
     	
     }
     
-    public Profile(	long id, String email, String name, 
-    				String phone){
+    public Profile(	Long id, String email, String name, 
+    				String phone, double rating, String settings){
     	this.id = id;
     	this.email=email;
     	this.name=name;
     	this.phone=phone;
-    	this.rating = new Rating(this.id);
-    	this.settings = new Settings(this.id);
+    	this.rating = rating;
+    	this.settings = settings;
     }
     
-    public long getId(){
+    public Long getId(){
     	return id;
     }
     
-    public void setId(long id){
+    public void setId(Long id){
     	this.id = id;
     }
     
@@ -58,19 +64,19 @@ public class Profile{
     	this.phone = phone;
     }
     
-    public Rating getRating(){
+    public double getRating(){
     	return rating;
     }
     
-    public void setRating(Rating rating){
+    public void setRating(double rating){
     	this.rating = rating;
     }
     
-    public Settings getSettings(){
+    public String getSettings(){
     	return settings;
     }
     
-    public void setSettings(Settings settings){
+    public void setSettings(String settings){
     	this.settings = settings;
     }
       

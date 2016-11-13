@@ -2,8 +2,14 @@ package project.persistence.entities;
 
 import java.util.Arrays;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "content")
 public class Content{
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	private String[] comments;
@@ -43,8 +49,7 @@ public class Content{
 	public void setComments(String[] comments){
 		this.comments = comments;
 	}
-	
-	
+
 	public String getEmail(){
 		return email;
 	}
@@ -61,7 +66,7 @@ public class Content{
 		this.phone = phone;
 	}
 	
-	public Double getPrice(){
+	public double getPrice(){
 		return price;
 	}
 	
@@ -69,7 +74,7 @@ public class Content{
 		this.price = price;
 	}
 	
-	public Double getRating(){
+	public double getRating(){
 		return rating;
 	}
 	

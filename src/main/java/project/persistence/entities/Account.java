@@ -1,46 +1,49 @@
 package project.persistence.entities;
 
-import java.util.Arrays;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name = "account")
 public class Account{
-	
-	// Declare that this attribute is the id
-    private static long id_counter;
-    private long id;
-    private int count;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    // private int count;
       
     private String email;
     private String name;
     private String phone;
     private	String password;
-    private Profile profile;
+    /*private Profile profile;
     private Post[] posts;
-    
+    */
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
     public Account(){
     	
     }
     
-    public Account(String email, String name, String phone, String password){
-    	this.id = id_counter;
-    	id_counter++;
+    public Account(Long id, String email, String name, String phone, String password){
+    	this.id = id;
     	this.email = email;
     	this.name = name;
     	this.phone = phone;
     	this.password = password;
-    	this.profile = new Profile(this.id, this.email, this.name, this.phone);
+    	/*this.profile = new Profile(this.id, this.email, this.name, this.phone);
     	this.posts = new Post[5];
-    	this.count = 0;
+    	this.count = 0;*/
     }
     
     //--------------------Id-----------------------------------
     
-    public long getId(){
+    public Long getId(){
     	return id;
     }
     
-    public void setId(long id){
+    public void setId(Long id){
     	this.id = id;
     }
     
@@ -86,17 +89,17 @@ public class Account{
     
     //-----------------------Profile----------------------------------
     
-    public Profile getProfile(){
+   /* public Profile getProfile(){
     	return profile;
     }
     
     public void setProfile(Profile profile){
     	this.profile = profile;
     }
-    
+    */
     //------------------------Posts-------------------------------------
     
-    public void createPost(Category category, Content content){
+   /* public void createPost(Category category, Content content){
     	Post ourPost = new Post(category, content);
     	try
     	{
@@ -122,10 +125,10 @@ public class Account{
     	this.posts[this.count] = post;
     	this.incrementCount();
     }
-    
+    */
     //---------------------Count----------------------------------
     
-    public int getCount(){
+    /*public int getCount(){
     	return count;
     }
     
@@ -139,7 +142,7 @@ public class Account{
     
     public void decrementCount(){
     	this.count--;
-    }
+    }*/
      
   //I don´t know how to reference objects ;/
    // https://en.wikipedia.org/wiki/Printf_format_string
@@ -155,6 +158,6 @@ public class Account{
     			+ "profile=%s,\n\t"
     			+ "posts=%s\n\t"
     			+ "]", 
-    			id, name, phone, password, profile, Arrays.toString(posts));
+    			id, name, phone, password );
     }
 }

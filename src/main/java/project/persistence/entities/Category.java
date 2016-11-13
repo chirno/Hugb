@@ -1,8 +1,14 @@
 package project.persistence.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "category")
 public class Category{
 	
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	private String name;
 	
@@ -10,16 +16,16 @@ public class Category{
 		
 	}
 	
-	public Category(int id, String name){
+	public Category(Long id, String name){
 		this.id = id;
 		this.name = name;
 	}
 	
-	public int getId(){
+	public Long getId(){
 		return id;
 	}
 	
-	public void setId(int id){
+	public void setId(Long id){
 		this.id = id;
 	}
 	
