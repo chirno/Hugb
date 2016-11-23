@@ -18,6 +18,7 @@ public class Content{
 	private double price;
 	private double rating;
 	private String title;
+	private Post post;
 	
 	public Content(){
 		
@@ -88,6 +89,14 @@ public class Content{
 	
 	public void setTitle(String title){
 		this.title = title;
+	}
+	
+	public Post getPost(){
+		return post;
+	}
+	
+	public void setPost(Post post){
+		this.post = post;
 	}
 	
 	public String toString(){

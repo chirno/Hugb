@@ -27,11 +27,11 @@ public class CategoryController {
 		
 		model.addAttribute("savedCategories", categoryService.findAll());
 		
-		return "categories/Categories";
+		return "/Categories";
 	}
 	
 	 @RequestMapping(value = "/categories", method = RequestMethod.POST)
-	    public String categoryViewCategory(@ModelAttribute("category") Category category,
+	    public String createCategory(@ModelAttribute("category") Category category,
 	                                     Model model){
 
 	        // Save the Category that we received from the form
@@ -42,6 +42,6 @@ public class CategoryController {
 	        //model.addAttribute("category", new Category());        
 	        
 	        // Return the view
-	        return "categories/Categories";
+	        return "/Categories";
 	    }
 }

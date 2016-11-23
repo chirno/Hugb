@@ -7,24 +7,25 @@ import javax.persistence.*;
 public class Post{
 
 	// Declare that this attribute is the id
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
 	private Long id;
 	
-	private String category;
+	private Category category;
 	private String content;
+	private Account account;
 	
 	public Post(){
 		
 	}
 	
-	public Post(String category, String content){
-		this.category = category;
+	public Post(String content){
 		this.content = content;
 	}
 	
 	//-------------------------Id----------------------------
-	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "PostId", unique = true, nullable = false)
 	public Long getId(){
 		return id;
 	}
@@ -34,12 +35,13 @@ public class Post{
 	}
 	
 	//-----------------------String---------------------------
-	
-	public String getCategory(){
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CategoryId", nullable = false)
+	public Category getCategory(){
 		return category;
 	}
 	
-	public void setCategory(String category){
+	public void setCategory(Category category){
 		this.category = category;
 	}
 	
@@ -52,6 +54,18 @@ public class Post{
 	public void setContent(String content){
 		this.content = content;
 	}
+	
+	//----------------------------------------------------------
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "AccountId", nullable = false)
+	public Account getAccount(){
+		return account;
+	}
+	
+	public void setAccount(Account account){
+		this.account = account;
+	}
+	
 	
 	//----------------------------------------------------------
 	

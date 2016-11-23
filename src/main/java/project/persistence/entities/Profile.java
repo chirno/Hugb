@@ -2,19 +2,16 @@ package project.persistence.entities;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "profile")
+@Embeddable
 public class Profile{
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-    
     private String email;
     private String name;
     private String phone;
-    private double rating;
-    private String settings;
+    //private double rating;
+    
+    @Embedded
+    private Settings settings;
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
@@ -22,23 +19,14 @@ public class Profile{
     	
     }
     
-    public Profile(	Long id, String email, String name, 
-    				String phone, double rating, String settings){
-    	this.id = id;
+    public Profile(String email, String name, 
+    				String phone){
     	this.email=email;
     	this.name=name;
     	this.phone=phone;
-    	this.rating = rating;
-    	this.settings = settings;
     }
     
-    public Long getId(){
-    	return id;
-    }
-    
-    public void setId(Long id){
-    	this.id = id;
-    }
+    //--------------------Email-------------------------------
     
     public String getEmail(){
     	return email;
@@ -48,6 +36,8 @@ public class Profile{
     	this.email = email;
     }
     
+  //---------------------Name---------------------------------
+    
     public String getName(){
     	return name;
     }
@@ -55,6 +45,8 @@ public class Profile{
     public void setName(String name){
     	this.name = name;
     }
+    
+    //----------------------Phone------------------------------------
     
     public String getPhone(){
     	return phone;
@@ -64,6 +56,8 @@ public class Profile{
     	this.phone = phone;
     }
     
+    //----------------------Rating-----------------------------------
+   /* 
     public double getRating(){
     	return rating;
     }
@@ -71,25 +65,27 @@ public class Profile{
     public void setRating(double rating){
     	this.rating = rating;
     }
+    */
+    //----------------------Setting-----------------------------------
     
-    public String getSettings(){
+    public Settings getSettings(){
     	return settings;
     }
     
-    public void setSettings(String settings){
+    public void setSettings(Settings settings){
     	this.settings = settings;
     }
+    
+    //----------------------Other-----------------------------------
       
     public String toString(){
     	return String.format(
     			"Profile[\n\t"
-    			+ "id=%d,\n\t"
     			+ "email=%s,\n\t"
     			+ "name=%s,\n\t"
     			+ "phone=%s,\n\t"
-    			+ "rating=%s,\n\t"
     			+ "settings=%s,\n\t"
-    			+ "]", 
-    			id, email, name, phone, rating, settings);
+    			+ "]",
+    			email, name, phone, settings);
     }
 }

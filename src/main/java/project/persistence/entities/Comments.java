@@ -17,12 +17,13 @@ public class Comments{
     	
     }
     
-    public Comments(Long id, String buyerComments, String userComments){
-    	this.id = id;
+    public Comments(String buyerComments, String userComments){
     	this.buyerComments = buyerComments;
         this.userComments = userComments;
     }
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId(){
     	return id;
     }

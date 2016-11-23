@@ -1,16 +1,18 @@
 package project.persistence.entities;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "category")
 public class Category{
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long id;
 	
 	private String name;
+	private Set<Post> posts;
 	
 	public Category(){
 		
@@ -21,6 +23,11 @@ public class Category{
 		this.name = name;
 	}
 	
+	//-----------------------------------------------------------------
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column( name = "CategoryId", unique = true, nullable = false)
 	public Long getId(){
 		return id;
 	}
@@ -37,6 +44,16 @@ public class Category{
 	
 	public void setName(String name){
 		this.name = name;
+	}
+	
+	//-----------------------------------------------------------------
+	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+	public Set<Post> getPosts(){
+		return posts;
+	}
+	
+	public void setPosts(Set<Post> posts){
+		this.posts = posts;
 	}
 	
 	//--------------------------------------------------------
