@@ -39,13 +39,13 @@ public class AccountServiceImplementation implements AccountService {
     	return false;
     }
     
-    /*public boolean login(String username, String password){
+    public boolean login(String username, String password){
     	Account temp = repository.getOne(username);
     	if((temp.getUsername()==username) && (temp.getPassword()==password)){
     		return true;
     	}
     	return false;
-    }*/
+    }
     
     public Account getOne(String username){
     	return repository.getOne(username);

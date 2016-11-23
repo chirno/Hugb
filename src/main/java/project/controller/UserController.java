@@ -53,18 +53,18 @@ public class UserController {
     }
 
     //This method delegates the task of creating a new user to the userService class.
-   /*@RequestMapping(value = "/signup", method = RequestMethod.POST)
+   @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String signupSubmit(@ModelAttribute Account account) {
         //If the chosen username already exists, do nothing but inform the user that the signup failed.
         if(accountService.exists(account.getUsername())) {
-            return "signup";
+            return "user/Signup";
         }
         //If the chosen username doesn't exist, create a new user.
         else {
             accountService.save(account);
-            return "login";
+            return "user/Index";
         }
-    }*/
+    }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginForm(Model model) {
@@ -73,21 +73,21 @@ public class UserController {
     }
 
     //This method delegates the task of logging in a user to the userService class.
-    /*@RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginSubmit(@ModelAttribute Account account, Model model,HttpSession session) {
         //If the submitted username and password match, then log the user in.
         if(accountService.exists(account.getUsername())) {
         	if(accountService.login(account.getUsername(), account.getPassword())){
         		
         		//We also create an attribute in the session to indicate the user is logged.
-        		session.setAttribute("Logged", true);
+        		//session.setAttribute("Logged", );
         		
         		//We associate the current session with the account object in the database.
-        		session.setAttribute("Account", accountService.getOne(account.getUsername()));
+        		//session.setAttribute("Account", accountService.getOne(account.getUsername()));
         		
-        		return "index";
+        		return "user/Index";
         	}
         }
-        return "login";
-    }*/
+        return "user/Login";
+    }
 }

@@ -30,7 +30,7 @@ public interface AccountService{
      * corresponds to username and password.
      * @return A list of {@link Account}s
      */
-    //boolean login(String username, String password);
+    boolean login(String username, String password);
     
     Account getOne(String username);
 }

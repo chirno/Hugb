@@ -62,7 +62,7 @@
                     <tbody>
                         <c:forEach var="category" items="${savedCategories}">
                             <tr>
-                                <td><a href="/categorie/${category.id}">${category.id}</a></td>
+                                <td><a href="categories/${category.id}">${category.id}</a></td>
                                 <%--The String in the note attribute--%>
                                 <td>${category.name}</td>
                             </tr>
