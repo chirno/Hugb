@@ -11,18 +11,7 @@
                 <td>Password:</td>
                 <td><sf:input path="password" type="text" placeholder="Enter category name here"/></td>
             </tr>
-            <tr>
-                <td>Email:</td>
-                <td><sf:input path="email" type="text" placeholder="Enter category name here"/></td>
-            </tr>
-            <tr>
-                <td>Name:</td>
-                <td><sf:input path="name" type="text" placeholder="Enter category name here"/></td>
-            </tr>
-            <tr>
-                <td>Phone:</td>
-                <td><sf:input path="phone" type="text" placeholder="Enter your phone number here"/></td>
-            </tr>
+            
         </table>
         <br>
         <input type="submit" VALUE="Create Account"/>

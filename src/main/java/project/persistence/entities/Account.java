@@ -9,13 +9,14 @@ import javax.persistence.*;
 @Table(name = "account")
 public class Account{
 
-   
+	@Column(name = "Account")
     private Long id;
     
+	@Id
     private String username;
     private	String password;
-    private Profile profile;
-    private Set<Post> posts;
+    //private Profile profile;
+    //private Set<Post> posts;
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
@@ -23,13 +24,13 @@ public class Account{
     	
     }
     
-    public Account(String username, String password, String email, String name, String phone){
+    public Account(String username, String password){
     	this.username = username;
     	this.password = password;
     }
     
     //--------------------Id-----------------------------------
-    @Column(name = "AccountId", unique = true, nullable = false)
+    //@Column(name = "AccountId", unique = true, nullable = false)
     public Long getId(){
     	return id;
     }
@@ -39,7 +40,7 @@ public class Account{
     }
     
     //--------------------Username-----------------------------------
-    @Id
+    //@Id
     public String getUsername(){
     	return username;
     }
@@ -59,6 +60,7 @@ public class Account{
     }
     
     //-----------------------Profile----------------------------------
+    /*
     @Embedded
     public Profile getProfile(){
     	return profile;
@@ -67,9 +69,10 @@ public class Account{
     public void setProfile(Profile profile){
     	this.profile = profile;
     }
-    
+    */
     //------------------------Posts-------------------------------------
-   @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+  /*
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     public Set<Post> getPosts(){
     	return posts;
     }
@@ -78,7 +81,7 @@ public class Account{
     	this.posts = posts;
     }
     
-   
+   */
   //I don´t know how to reference objects ;/
    // https://en.wikipedia.org/wiki/Printf_format_string
     // Can %s display boolean??
@@ -89,8 +92,7 @@ public class Account{
     			+ "id=%d,\n\t"
     			+ "username=%s,\n\t"
     			+ "password=%s,\n\t"
-    			+ "profile=%s,\n\t"
     			+ "]", 
-    			id, username, password, profile);
+    			id, username, password);
     }
 }

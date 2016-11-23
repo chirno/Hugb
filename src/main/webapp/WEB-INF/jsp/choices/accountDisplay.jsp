@@ -9,9 +9,7 @@
                             <th>#</th>
                             <th>Username</th>
                             <th>Password</th>
-                            <th>Email</th>
-                            <th>Name</th>
-                            <th>Phone</th>
+                           
                         </tr>
                     </thead>
                     <tbody>
@@ -20,9 +18,7 @@
                                 <td><a href="/accounts/${account.id}">${account.id}</a></td>
                                 <td>${account.username}</td>
                                 <td>${account.password}</td>
-                                <td>${account.email}</td>
-                                <td>${account.name}</td>
-                                <td>${account.phone}</td>
+                                
                             </tr>
                         </c:forEach>
                     </tbody>

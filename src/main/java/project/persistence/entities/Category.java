@@ -8,11 +8,13 @@ import javax.persistence.*;
 @Table(name = "category")
 public class Category{
 	
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column( name = "Category")
 	private Long id;
 	
 	private String name;
-	private Set<Post> posts;
+	//private Set<Post> posts;
 	
 	public Category(){
 		
@@ -25,9 +27,9 @@ public class Category{
 	
 	//-----------------------------------------------------------------
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column( name = "CategoryId", unique = true, nullable = false)
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@Column( name = "CategoryId", unique = true, nullable = false)
 	public Long getId(){
 		return id;
 	}
@@ -47,6 +49,7 @@ public class Category{
 	}
 	
 	//-----------------------------------------------------------------
+	/*
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	public Set<Post> getPosts(){
 		return posts;
@@ -55,7 +58,7 @@ public class Category{
 	public void setPosts(Set<Post> posts){
 		this.posts = posts;
 	}
-	
+	*/
 	//--------------------------------------------------------
 	
 	public String toString(){
