@@ -4,17 +4,11 @@
 	      <a class="navbar-brand" href="/">Braskarinn</a>
 	    </div>
 	    <ul class="nav navbar-nav">
-<<<<<<< HEAD
-	      
+
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
 	      	<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-=======
-	      <li><a href="admin/categories">Categories</a></li>
-	      <li><a href="admin/accounts">Accounts</a></li>
-	      <li><a href="admin/profiles">Profiles</a></li>
->>>>>>> test
 		</ul>
 	</div>
 </nav>

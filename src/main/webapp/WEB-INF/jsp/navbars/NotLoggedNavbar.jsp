@@ -4,7 +4,7 @@
 	      <a class="navbar-brand" href="/">Braskarinn</a>
 	    </div>
 	    <ul class="nav navbar-nav">
-<<<<<<< HEAD
+			<li><a href="/admin"> Admin </a></li>
 	      
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
@@ -14,10 +14,3 @@
 	</div>
 </nav>
 
-=======
-	      <li><a href="/signup">Signup</a></li>
-	      <li><a href="/login">Login</a></li>
-		</ul>
-	</div>
-</nav>
->>>>>>> test

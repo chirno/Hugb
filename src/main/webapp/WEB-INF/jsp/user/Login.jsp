@@ -15,16 +15,11 @@
 
         <h1>Trying to log in are you? </h1>
         <h2>Well fill in this form then and let's be on our way</h2>
-        
-<<<<<<< HEAD
+
         
 		<jsp:include page="../forms/LoginForm.jsp" />
 		
-=======
-        <sf:form method="POST" commandName="account" action="/login">
-		<jsp:include page="../forms/LoginForm.jsp" />
-		</sf:form>
->>>>>>> test
+
         
         <jsp:include page="../displays/ErrorMessage.jsp" />
        

@@ -83,7 +83,7 @@ public class AdminController {
 		return "admin/Accounts";
 	}
 	
-	@RequestMapping(value = "admin/accounts", method = RequestMethod.POST)
+	/*@RequestMapping(value = "admin/accounts", method = RequestMethod.POST)
 	public String adminDeleteAccountWithUsername(@ModelAttribute("account") Account account,
                                      Model model){
 
@@ -96,7 +96,7 @@ public class AdminController {
         
 		// Return the view
 		return "admin/Accounts";
-	}
+	}*/
 	
 	
 }

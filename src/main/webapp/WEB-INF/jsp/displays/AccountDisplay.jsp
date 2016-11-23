@@ -6,35 +6,25 @@
                 <table class="table">
                     <thead>
                         <tr>
-<<<<<<< HEAD
+
                             <th>Username</th>
                             <th>Password</th>
                             <th>Email</th>
                             <th>Name</th>
                             <th>Phone</th>
-=======
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                           
->>>>>>> test
+
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach var="account" items="${savedAccounts}">
                             <tr>
-<<<<<<< HEAD
+
                                 <td>${account.username}</td>
                                 <td>${account.password}</td>
                                 <td>${account.email}</td>
                                 <td>${account.name}</td>
                                 <td>${account.phone}</td>
-=======
-                                <td><a href="/accounts/${account.id}">${account.id}</a></td>
-                                <td>${account.username}</td>
-                                <td>${account.password}</td>
-                                
->>>>>>> test
+
                             </tr>
                         </c:forEach>
                     </tbody>
