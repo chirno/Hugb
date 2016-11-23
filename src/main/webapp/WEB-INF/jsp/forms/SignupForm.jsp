@@ -1,5 +1,5 @@
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
-
+<sf:form method="POST" commandName="account" action="/signup">
 <table>
 	<tr>
 		<td>Username:</td>
@@ -24,4 +24,4 @@
 </table>
 <br>
 <input type="submit" VALUE="Sign up"/>
-    
+    </sf:form>

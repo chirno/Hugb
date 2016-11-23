@@ -4,9 +4,8 @@
 	      <a class="navbar-brand" href="/">Braskarinn</a>
 	    </div>
 	    <ul class="nav navbar-nav">
-	      <li><a href="admin/categories">Categories</a></li>
-	      <li><a href="admin/accounts">Accounts</a></li>
-	      <li><a href="admin/profiles">Profiles</a></li>
+	      <li><a href="/signup">Signup</a></li>
+	      <li><a href="/login">Login</a></li>
 		</ul>
 	</div>
 </nav>
