@@ -82,16 +82,15 @@ public class UserController {
         	if(accountService.login(account.getUsername(), account.getPassword())){
         		
         		//We also create an attribute in the session to indicate the user is logged.
-        		//session.setAttribute("Logged", );
+        		session.setAttribute("Logged", new IsLogged(true));
         		
         		//We associate the current session with the account object in the database.
-        		//session.setAttribute("Account", accountService.getOne(account.getUsername()));
+        		session.setAttribute("Account", accountService.findOne(account.getUsername()));
         		
         		return "user/Index";
         	}
         }
-
-    	model.addAttribute("errorMessage", new ErrorMessage("Wrong user credentials, please try again!"));
+    	model.addAttribute("errorMessage", new ErrorMessage("Wrong user credentials, try again!"));
         return "user/Login";
     }
 }

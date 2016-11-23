@@ -45,14 +45,14 @@ public class AccountServiceImplementation implements AccountService {
     }
     
     public boolean login(String username, String password){
-    	Account temp = repository.getOne(username);
-    	if((temp.getUsername()==username) && (temp.getPassword()==password)){
+    	Account temp = repository.findOne(username);
+    	if(password.equalsIgnoreCase(temp.getPassword())){
     		return true;
     	}
     	return false;
     }
     
-    public Account getOne(String username){
-    	return repository.getOne(username);
+    public Account findOne(String username){
+    	return repository.findOne(username);
     }
 }

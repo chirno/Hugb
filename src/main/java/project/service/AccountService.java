@@ -34,6 +34,6 @@ public interface AccountService{
      */
     boolean login(String username, String password);
     
-    Account getOne(String username);
+    Account findOne(String username);
     
 }

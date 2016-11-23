@@ -32,9 +32,16 @@ public class Account{
     	this.name = name;
     	this.phone = phone;
 
-
     }
     
+    public Account(Account account){
+    	this.username = account.username;
+    	this.password = account.password;
+    	this.email = account.email;
+    	this.name = account.name;
+    	this.phone = account.phone;
+
+    }
  //--------------------Username-------------------------------
     
     public String getUsername(){
