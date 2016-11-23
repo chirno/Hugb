@@ -11,11 +11,13 @@
     </head>
     <body>
         <div class="container">
+        	
             <jsp:include page="../navbars/NotLoggedNavbar.jsp" />
-
+	
         <h1>HBV501G Project Spring Boot Skeleton</h1>
         <p>Test.</p>
         
+        <jsp:include page="../displays/SessionActive.jsp" />
         
        
         </div>

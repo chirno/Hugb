@@ -4,11 +4,10 @@
 	      <a class="navbar-brand" href="/">Braskarinn</a>
 	    </div>
 	    <ul class="nav navbar-nav">
-
+			<li><%= session.getAttribute( "Account" ) %></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
-	      	<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			<li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Logout </a></li>
 		</ul>
 	</div>
 </nav>
