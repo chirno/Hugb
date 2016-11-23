@@ -7,16 +7,14 @@ import javax.persistence.*;
 @Table(name = "account")
 public class Account{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    // private int count;
-      
+	@Id
+	private String username;
+    private	String password;
+    
     private String email;
     private String name;
     private String phone;
-    private	String password;
+    
     /*private Profile profile;
     private Post[] posts;
     */
@@ -26,25 +24,32 @@ public class Account{
     	
     }
     
-    public Account(Long id, String email, String name, String phone, String password){
-    	this.id = id;
+    public Account(String username, String password, String email, String name, String phone){
+    	this.username = username;
+    	this.password = password;
     	this.email = email;
     	this.name = name;
     	this.phone = phone;
+    }
+    
+ //--------------------Username-------------------------------
+    
+    public String getUsername(){
+    	return username;
+    }
+    
+    public void setUsername(String username){
+    	this.username = username;
+    }
+    
+ //---------------------Password-----------------------------------
+    
+    public String getPassword(){
+    	return password;
+    }
+    
+    public void setPassword(String password){
     	this.password = password;
-    	/*this.profile = new Profile(this.id, this.email, this.name, this.phone);
-    	this.posts = new Post[5];
-    	this.count = 0;*/
-    }
-    
-    //--------------------Id-----------------------------------
-    
-    public Long getId(){
-    	return id;
-    }
-    
-    public void setId(Long id){
-    	this.id = id;
     }
     
     //--------------------Email-------------------------------
@@ -77,16 +82,7 @@ public class Account{
     	this.phone = phone;
     }
     
-    //---------------------Password-----------------------------------
-    
-    public String getPassword(){
-    	return password;
-    }
-    
-    public void setPassword(String password){
-    	this.password = password;
-    }
-    
+   
     //-----------------------Profile----------------------------------
     
    /* public Profile getProfile(){
@@ -151,13 +147,12 @@ public class Account{
     public String toString(){
     	return String.format(
     			"Account[\n\t"
-    			+ "id=%d,\n\t"
+    			+ "username=%s,\n\t"
+    			+ "password=%s,\n\t"
+    			+ "email=%s,\n\t"
     			+ "name=%s,\n\t"
     			+ "phone=%s,\n\t"
-    			+ "password=%s,\n\t"
-    			+ "profile=%s,\n\t"
-    			+ "posts=%s\n\t"
     			+ "]", 
-    			id, name, phone, password );
+    			username, password, email, name, phone);
     }
 }
