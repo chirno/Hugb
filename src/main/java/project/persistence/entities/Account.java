@@ -9,20 +9,12 @@ public class Account{
 
 	@Id
 	private String username;
-<<<<<<< HEAD
     private	String password;    
     private String email;
     private String name;
     private String phone;
 
 
-=======
-    private	String password;
-    
-    private String email;
-    private String name;
-    private String phone;
->>>>>>> test
     
     /*private Profile profile;
     private Post[] posts;
@@ -39,7 +31,7 @@ public class Account{
     	this.email = email;
     	this.name = name;
     	this.phone = phone;
-<<<<<<< HEAD
+
 
     }
     
@@ -59,26 +51,6 @@ public class Account{
     	return password;
     }
     
-=======
-    }
-    
- //--------------------Username-------------------------------
-    
-    public String getUsername(){
-    	return username;
-    }
-    
-    public void setUsername(String username){
-    	this.username = username;
-    }
-    
- //---------------------Password-----------------------------------
-    
-    public String getPassword(){
-    	return password;
-    }
-    
->>>>>>> test
     public void setPassword(String password){
     	this.password = password;
     }
@@ -171,10 +143,6 @@ public class Account{
     public void decrementCount(){
     	this.count--;
     }*/
-<<<<<<< HEAD
-
-=======
->>>>>>> test
      
   //I don´t know how to reference objects ;/
    // https://en.wikipedia.org/wiki/Printf_format_string
@@ -190,9 +158,6 @@ public class Account{
     			+ "phone=%s,\n\t"
     			+ "]", 
     			username, password, email, name, phone);
-<<<<<<< HEAD
 
-=======
->>>>>>> test
     }
 }
