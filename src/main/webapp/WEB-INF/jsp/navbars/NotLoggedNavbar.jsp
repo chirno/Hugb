@@ -3,9 +3,10 @@
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="/">Braskarinn</a>
 	    </div>
-	    <ul class="nav navbar-nav">
-	      <li><a href="/signup">Signup</a></li>
-	      <li><a href="/login">Login</a></li>
+	    <ul class="nav navbar-nav navbar-right">
+			<li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
+	      	<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 		</ul>
 	</div>
 </nav>
+

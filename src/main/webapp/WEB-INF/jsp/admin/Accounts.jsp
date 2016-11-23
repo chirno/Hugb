@@ -8,7 +8,7 @@
 <html lang="en">
 
 <head>
-    <title>Admin Categories</title>
+    <title>Admin Accounts</title>
     <jsp:include page="../dependencies/Bootstrap.jsp" />
 </head>
 <body>
@@ -16,13 +16,13 @@
 
 	<jsp:include page="../navbars/AdminNavbar.jsp" />
 	
-	<h1>Create a new category by filling in this form.</h1>
+	<h1>Create a new account by filling in this form.</h1>
 	
-	<jsp:include page="../forms/AdminCreateCategoryForm.jsp" />
+	<jsp:include page="../forms/AdminCreateAccountForm.jsp" />
     
-    <h1>Existing categories</h1>
+    <h1>Existing accounts</h1>
     
-    <jsp:include page="../displays/CategoryDisplay.jsp" />
+    <jsp:include page="../displays/AccountDisplay.jsp" />
 
     </div>
 </body>

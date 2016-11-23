@@ -27,8 +27,6 @@ public class AdminController {
         this.postService = postService;
     }
 	
-	
-
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String adminIndexPage(Model model){
 		model.addAttribute("account", new Account());
@@ -36,7 +34,7 @@ public class AdminController {
 		return "admin/Index";
 	}
 	
-	@RequestMapping(value = "/categories", method = RequestMethod.GET)
+	@RequestMapping(value = "admin/categories", method = RequestMethod.GET)
 	public String adminViewCategoriesPage(Model model){
 		model.addAttribute("category", new Category());
 		
@@ -45,7 +43,7 @@ public class AdminController {
 		return "admin/Categories";
 	}
 	
-	@RequestMapping(value = "/categories", method = RequestMethod.POST)
+	@RequestMapping(value = "admin/categories", method = RequestMethod.POST)
 	public String adminCreateCategory(@ModelAttribute("category") Category category,
                                      Model model){
 
@@ -58,5 +56,29 @@ public class AdminController {
         
 		// Return the view
 		return "admin/Categories";
+	}
+	
+	@RequestMapping(value = "admin/accounts", method = RequestMethod.GET)
+	public String adminViewAccountsPage(Model model){
+		model.addAttribute("account", new Category());
+		
+		model.addAttribute("savedAccounts", accountService.findAll());
+		
+		return "admin/Accounts";
+	}
+	
+	@RequestMapping(value = "admin/accounts", method = RequestMethod.POST)
+	public String adminCreateAccount(@ModelAttribute("account") Account account,
+                                     Model model){
+
+		// Save the Category that we received from the form
+		accountService.save(account);
+        
+		model.addAttribute("savedAccount", accountService.findAll());
+
+		//model.addAttribute("category", new Category());        
+        
+		// Return the view
+		return "admin/Accounts";
 	}
 }

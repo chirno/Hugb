@@ -16,9 +16,9 @@
         <h1>Trying to sign up are you?</h1>
         <h2>Well fill in this form then and let's be on our way</h2>
         
-        <sf:form method="POST" commandName="account" action="/signup">
+        
 		<jsp:include page="../forms/SignupForm.jsp" />
-		</sf:form>
+		
         
         <jsp:include page="../displays/ErrorMessage.jsp" />
        

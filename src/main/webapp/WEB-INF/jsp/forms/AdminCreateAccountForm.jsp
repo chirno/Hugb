@@ -1,7 +1,6 @@
-<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
-<sf:form method="POST" commandName="account" action="/signup">
-<table>
-	<tr>
+<sf:form method="POST" commandName="account" action="admin/accounts">
+    
+    <tr>
 		<td>Username:</td>
 		<td><sf:input path="username" type="text" placeholder="Enter username here"/></td>
 	</tr>
@@ -21,7 +20,8 @@
 		<td>Phone:</td>
 		<td><sf:input path="phone" type="text" placeholder="Enter your phone here"/></td>
 	</tr>
-</table>
-<br>
-<input type="submit" VALUE="Sign up"/>
+        <br>
+        <input type="submit" VALUE="Create account"/>
+        
+
     </sf:form>
