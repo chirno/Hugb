@@ -26,6 +26,11 @@ public class AccountServiceImplementation implements AccountService {
     public  Account save(Account entity) {
         return repository.save(entity);
     }
+    
+    @Override
+    public void deleteWithUsername(String username){
+    	repository.delete(username);
+    }
 
     @Override
     public List<Account> findAll() {

@@ -12,6 +12,8 @@ public interface AccountService{
      * @return {@link Account} that was saved
      */
     Account save(Account entity);
+    
+    void deleteWithUsername(String username);
 
     /**
      * Get all {@link Account}s
@@ -33,4 +35,5 @@ public interface AccountService{
     boolean login(String username, String password);
     
     Account getOne(String username);
+    
 }

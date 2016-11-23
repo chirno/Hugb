@@ -6,8 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import project.persistence.entities.Account;
-import project.persistence.entities.Category;
+import project.persistence.entities.*;
 import project.service.*;
 
 
@@ -83,4 +82,21 @@ public class AdminController {
 		// Return the view
 		return "admin/Accounts";
 	}
+	
+	@RequestMapping(value = "admin/accounts", method = RequestMethod.POST)
+	public String adminDeleteAccountWithUsername(@ModelAttribute("account") Account account,
+                                     Model model){
+
+		// Delete the Account that we receive
+		accountService.deleteWithUsername(account.getUsername());
+        
+		model.addAttribute("errorMessage", new ErrorMessage("Delete Successful!"));
+
+		//model.addAttribute("category", new Category());        
+        
+		// Return the view
+		return "admin/Accounts";
+	}
+	
+	
 }
