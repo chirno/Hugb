@@ -20,28 +20,4 @@ public class CategoryController {
 	public CategoryController(CategoryService categoryService){
 		this.categoryService = categoryService;
 	}
-
-	@RequestMapping(value = "/categories", method = RequestMethod.GET)
-	public String categoryPage(Model model){
-		model.addAttribute("category", new Category());
-		
-		model.addAttribute("savedCategories", categoryService.findAll());
-		
-		return "categories/Categories";
-	}
-	
-	 @RequestMapping(value = "/categories", method = RequestMethod.POST)
-	    public String categoryViewCategory(@ModelAttribute("category") Category category,
-	                                     Model model){
-
-	        // Save the Category that we received from the form
-	        categoryService.save(category);
-	        
-	        model.addAttribute("savedCategories", categoryService.findAll());
-
-	        //model.addAttribute("category", new Category());        
-	        
-	        // Return the view
-	        return "categories/Categories";
-	    }
 }

@@ -36,7 +36,7 @@ public class PostController {
         model.addAttribute("posts",postService.findAllReverseOrder());
 
         // Return the view
-        return "post/Posts";
+        return "admin/Posts";
     }
 
     // Method that receives the POST request on the URL /postit
@@ -61,7 +61,7 @@ public class PostController {
         model.addAttribute("post", new Post());
 
         // Return the view
-        return "post/Posts";
+        return "admin/Posts";
     }
 
     
