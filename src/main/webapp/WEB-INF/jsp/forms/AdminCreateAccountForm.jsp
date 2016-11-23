@@ -23,5 +23,5 @@
 	</tr>
 </table>
 <br>
-<input type="submit" VALUE="Sign up"/>
+<input type="submit" VALUE="Create account!"/>
     </sf:form>

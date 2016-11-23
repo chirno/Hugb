@@ -61,7 +61,7 @@ public class AdminController {
 	
 	@RequestMapping(value = "admin/accounts", method = RequestMethod.GET)
 	public String adminViewAccountsPage(Model model){
-		model.addAttribute("account", new Category());
+		model.addAttribute("account", new Account());
 		
 		model.addAttribute("savedAccounts", accountService.findAll());
 		
@@ -75,7 +75,7 @@ public class AdminController {
 		// Save the Category that we received from the form
 		accountService.save(account);
         
-		model.addAttribute("savedAccount", accountService.findAll());
+		model.addAttribute("savedAccounts", accountService.findAll());
 
 		//model.addAttribute("category", new Category());        
         

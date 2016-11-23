@@ -11,17 +11,23 @@ public class Post{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String category;
-	private String content;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="username")
+    private Account account;
+    
+    
+    
+	//private String category;
+	//private String content;
 	
 	public Post(){
 		
 	}
 	
-	public Post(String category, String content){
+	/*public Post(String category, String content){
 		this.category = category;
 		this.content = content;
-	}
+	}*/
 	
 	//-------------------------Id----------------------------
 	
@@ -34,7 +40,7 @@ public class Post{
 	}
 	
 	//-----------------------String---------------------------
-	
+	/*
 	public String getCategory(){
 		return category;
 	}
@@ -52,13 +58,13 @@ public class Post{
 	public void setContent(String content){
 		this.content = content;
 	}
-	
+	*/
 	//----------------------------------------------------------
 	
-	public String toString(){
+	/*public String toString(){
     	return String.format(
     			"\n\t\tPost[category=%s, content=%s]\n\t", 
     			category, content);
-    }
+    }*/
 	
 }

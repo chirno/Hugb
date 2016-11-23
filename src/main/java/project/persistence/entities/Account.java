@@ -86,64 +86,6 @@ public class Account{
     }
     
    
-    //-----------------------Profile----------------------------------
-    
-   /* public Profile getProfile(){
-    	return profile;
-    }
-    
-    public void setProfile(Profile profile){
-    	this.profile = profile;
-
-    }
-    */
-    //------------------------Posts-------------------------------------
-    
-   /* public void createPost(Category category, Content content){
-    	Post ourPost = new Post(category, content);
-    	try
-    	{
-    		this.insertPost(ourPost);
-    	}
-    	catch (ArrayIndexOutOfBoundsException e)
-    	{
-    		System.out.println("You shall not post!");
-    		System.exit(1);
-    	}
-    	System.out.println("Success");
-    }
-    
-    public Post[] getPosts(){
-    	return posts;
-    }
-    
-    public void setPosts(Post[] posts){
-    	this.posts = posts;
-    }
-    
-    public void insertPost(Post post){
-    	this.posts[this.count] = post;
-    	this.incrementCount();
-    }
-    */
-    //---------------------Count----------------------------------
-    
-    /*public int getCount(){
-    	return count;
-    }
-    
-    public void setCount(int count){
-    	this.count = count;
-    }
-    
-    public void incrementCount(){
-    	this.count++;
-    }
-    
-    public void decrementCount(){
-    	this.count--;
-    }*/
-     
   //I don´t know how to reference objects ;/
    // https://en.wikipedia.org/wiki/Printf_format_string
     // Can %s display boolean??
