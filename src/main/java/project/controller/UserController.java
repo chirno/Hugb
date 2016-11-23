@@ -58,6 +58,7 @@ public class UserController {
         //If the chosen username already exists, do nothing but inform the user that the signup failed.
         if(accountService.exists(account.getUsername())) {
         	model.addAttribute("errorMessage", new ErrorMessage("That username is taken, please try again!"));
+
             return "user/Signup";
         }
         //If the chosen username doesn't exist, create a new user.

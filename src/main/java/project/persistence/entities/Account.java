@@ -9,11 +9,12 @@ public class Account{
 
 	@Id
 	private String username;
-    private	String password;
-    
+    private	String password;    
     private String email;
     private String name;
     private String phone;
+
+
     
     /*private Profile profile;
     private Post[] posts;
@@ -30,6 +31,8 @@ public class Account{
     	this.email = email;
     	this.name = name;
     	this.phone = phone;
+
+
     }
     
  //--------------------Username-------------------------------
@@ -91,6 +94,7 @@ public class Account{
     
     public void setProfile(Profile profile){
     	this.profile = profile;
+
     }
     */
     //------------------------Posts-------------------------------------
@@ -154,5 +158,6 @@ public class Account{
     			+ "phone=%s,\n\t"
     			+ "]", 
     			username, password, email, name, phone);
+
     }
 }
