@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import project.service.AccountService;
-import project.persistence.entities.Account;
+import project.persistence.entities.*;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -54,9 +54,10 @@ public class UserController {
 
     //This method delegates the task of creating a new user to the userService class.
    @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signupSubmit(@ModelAttribute Account account) {
+    public String signupSubmit(@ModelAttribute Account account, Model model) {
         //If the chosen username already exists, do nothing but inform the user that the signup failed.
         if(accountService.exists(account.getUsername())) {
+        	model.addAttribute("errorMessage", new ErrorMessage("That username is taken, please try again!"));
             return "user/Signup";
         }
         //If the chosen username doesn't exist, create a new user.
@@ -88,6 +89,8 @@ public class UserController {
         		return "user/Index";
         	}
         }
+
+    	model.addAttribute("errorMessage", new ErrorMessage("Wrong user credentials, please try again!"));
         return "user/Login";
     }
 }

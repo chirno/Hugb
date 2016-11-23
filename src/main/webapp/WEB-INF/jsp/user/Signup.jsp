@@ -19,7 +19,6 @@
         
 		<jsp:include page="../forms/SignupForm.jsp" />
 		
-        
         <jsp:include page="../displays/ErrorMessage.jsp" />
        
         </div>

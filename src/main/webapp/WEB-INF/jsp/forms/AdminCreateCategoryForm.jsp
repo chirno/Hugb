@@ -1,3 +1,4 @@
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <sf:form method="POST" commandName="category" action="admin/categories">
     
           <table>
