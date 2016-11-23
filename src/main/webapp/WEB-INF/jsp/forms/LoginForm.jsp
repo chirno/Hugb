@@ -1,5 +1,9 @@
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<<<<<<< HEAD
 <sf:form method="POST" commandName="account" action="/login">
+=======
+
+>>>>>>> test
 <table>
 	<tr>
 		<td>Username:</td>
@@ -12,7 +16,10 @@
 </table>
 <br>
 <input type="submit" VALUE="Log in"/>
+<<<<<<< HEAD
 </sf:form>
+=======
+>>>>>>> test
     
        
         

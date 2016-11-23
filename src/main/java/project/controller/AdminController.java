@@ -34,7 +34,9 @@ public class AdminController {
 		return "admin/Index";
 	}
 	
+
 	@RequestMapping(value = "admin/categories", method = RequestMethod.GET)
+
 	public String adminViewCategoriesPage(Model model){
 		model.addAttribute("category", new Category());
 		

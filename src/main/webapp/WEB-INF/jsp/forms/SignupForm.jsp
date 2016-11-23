@@ -11,6 +11,7 @@
 	</tr>
 	<tr>
 		<td>Email:</td>
+<<<<<<< HEAD
 		<td><sf:input path="email" type="text" placeholder="Enter your email here"/></td>
 	</tr>
 	<tr>
@@ -20,6 +21,17 @@
 	<tr>
 		<td>Phone:</td>
 		<td><sf:input path="phone" type="text" placeholder="Enter your phone here"/></td>
+=======
+		<td><sf:input path="password" type="text" placeholder="Enter your email here"/></td>
+	</tr>
+	<tr>
+		<td>Name:</td>
+		<td><sf:input path="password" type="text" placeholder="Enter your name here"/></td>
+	</tr>
+	<tr>
+		<td>Phone:</td>
+		<td><sf:input path="password" type="text" placeholder="Enter your phone here"/></td>
+>>>>>>> test
 	</tr>
 </table>
 <br>
