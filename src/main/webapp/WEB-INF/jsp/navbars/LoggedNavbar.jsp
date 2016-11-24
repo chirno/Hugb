@@ -4,7 +4,15 @@
 	      <a class="navbar-brand" href="/">Braskarinn</a>
 	    </div>
 	    <ul class="nav navbar-nav">
-			<li><%= session.getAttribute( "Account" ) %></li>
+			<li class="dropdown">
+        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">User: Posts
+        	<span class="caret"></span></a>
+        	<ul class="dropdown-menu">
+        		<li><a href="/account/posts">My posts</a></li>
+          		<li><a href="/account/posts/create">Create new post</a></li>
+          		<li><a href="/account/posts/delete">Delete a post</a></li>
+        	</ul>
+        	</li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Logout </a></li>

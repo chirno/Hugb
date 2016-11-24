@@ -3,6 +3,7 @@ package project.service.Implementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.persistence.entities.Post;
+import project.persistence.entities.Account;
 import project.persistence.repositories.PostRepository;
 import project.service.PostService;
 
@@ -27,8 +28,8 @@ public class PostServiceImplementation implements PostService {
     }
 
     @Override
-    public void delete(Post post) {
-        repository.delete(post);
+    public void delete(Long id) {
+        repository.delete(id);
     }
 
     @Override
@@ -50,5 +51,14 @@ public class PostServiceImplementation implements PostService {
     @Override
     public Post findOne(Long id) {
         return repository.findOne(id);
+    }
+    
+    @Override
+    public List<Post> findPostsByUsername(Account account){
+    	List<Post> posts = repository.findPostsByUsername(account);
+    	
+    	Collections.reverse(posts);
+    	
+    	return posts;
     }
 }

@@ -16,18 +16,20 @@ public class Post{
     private Account account;
     
     
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="category_id")
+	private Category category;
     
-	//private String category;
-	//private String content;
+	private String content;
 	
 	public Post(){
 		
 	}
 	
-	/*public Post(String category, String content){
+	public Post(Category category, String content){
 		this.category = category;
 		this.content = content;
-	}*/
+	}
 	
 	//-------------------------Id----------------------------
 	
@@ -40,12 +42,12 @@ public class Post{
 	}
 	
 	//-----------------------String---------------------------
-	/*
-	public String getCategory(){
+	
+	public Category getCategory(){
 		return category;
 	}
 	
-	public void setCategory(String category){
+	public void setCategory(Category category){
 		this.category = category;
 	}
 	
@@ -58,7 +60,17 @@ public class Post{
 	public void setContent(String content){
 		this.content = content;
 	}
-	*/
+	
+	//----------------------Username-----------------------------
+	
+		public Account getAccount(){
+			return account;
+		}
+		
+		public void setAccount(Account account){
+			this.account = account;
+		}
+	
 	//----------------------------------------------------------
 	
 	/*public String toString(){

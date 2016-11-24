@@ -3,7 +3,7 @@ package project.persistence.repositories;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import project.persistence.entities.Account;
+import project.persistence.entities.*;
 
 import java.util.List;
 
@@ -18,6 +18,10 @@ import java.util.List;
  */
 
 public interface AccountRepository extends JpaRepository<Account, String>{
+	
+	/*---------------------Our written queries-------------------------------*/
+	
+	
 	
 	/*---------------------Inherited from CrudRepository---------------------*/
 	

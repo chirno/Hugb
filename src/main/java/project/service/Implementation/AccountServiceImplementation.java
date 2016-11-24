@@ -28,7 +28,7 @@ public class AccountServiceImplementation implements AccountService {
     }
     
     @Override
-    public void deleteWithUsername(String username){
+    public void delete(String username){
     	repository.delete(username);
     }
 
@@ -46,7 +46,7 @@ public class AccountServiceImplementation implements AccountService {
     
     public boolean login(String username, String password){
     	Account temp = repository.findOne(username);
-    	if(password.equalsIgnoreCase(temp.getPassword())){
+    	if(password.equals(temp.getPassword())){
     		return true;
     	}
     	return false;

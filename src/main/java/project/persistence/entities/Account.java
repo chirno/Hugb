@@ -1,5 +1,7 @@
 package project.persistence.entities;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -9,16 +11,14 @@ public class Account{
 
 	@Id
 	private String username;
-    private	String password;    
+    private	String password;
     private String email;
     private String name;
     private String phone;
-
-
+    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="account")
+    private List<Post> posts;
     
-    /*private Profile profile;
-    private Post[] posts;
-    */
+    
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
     public Account(){
@@ -31,7 +31,6 @@ public class Account{
     	this.email = email;
     	this.name = name;
     	this.phone = phone;
-
     }
     
     public Account(Account account){
@@ -40,6 +39,7 @@ public class Account{
     	this.email = account.email;
     	this.name = account.name;
     	this.phone = account.phone;
+    	this.posts = account.posts;
 
     }
  //--------------------Username-------------------------------
@@ -92,7 +92,18 @@ public class Account{
     	this.phone = phone;
     }
     
+    //----------------------Posts------------------------------------
+    
+    public List<Post> getPosts(){
+    	return posts;
+    }
+    
+    public void setPosts(List<Post> posts){
+    	this.posts = posts;
+    }
    
+    //--------------------------------------------------------
+    
   //I don´t know how to reference objects ;/
    // https://en.wikipedia.org/wiki/Printf_format_string
     // Can %s display boolean??

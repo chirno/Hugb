@@ -26,6 +26,8 @@ public class AdminController {
         this.postService = postService;
     }
 	
+	//------------------------------------------------------------------------------
+	
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String adminIndexPage(Model model){
 		model.addAttribute("account", new Account());
@@ -33,10 +35,11 @@ public class AdminController {
 		return "admin/Index";
 	}
 	
+	//------------------------------------------------------------------------------
 
-	@RequestMapping(value = "admin/categories", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/categories", method = RequestMethod.GET)
 
-	public String adminViewCategoriesPage(Model model){
+	public String adminViewCategoryPage(Model model){
 		model.addAttribute("category", new Category());
 		
 		model.addAttribute("savedCategories", categoryService.findAll());
@@ -44,7 +47,19 @@ public class AdminController {
 		return "admin/Categories";
 	}
 	
-	@RequestMapping(value = "admin/categories", method = RequestMethod.POST)
+	//------------------------------------------------------------------------------
+	
+	@RequestMapping(value = "/admin/categories/create", method = RequestMethod.GET)
+
+	public String adminViewCategoryCreationPage(Model model){
+		model.addAttribute("category", new Category());
+		
+		model.addAttribute("savedCategories", categoryService.findAll());
+		
+		return "admin/categories/Create";
+	}
+	
+	@RequestMapping(value = "/admin/categories/create", method = RequestMethod.POST)
 	public String adminCreateCategory(@ModelAttribute("category") Category category,
                                      Model model){
 
@@ -53,14 +68,38 @@ public class AdminController {
         
 		model.addAttribute("savedCategories", categoryService.findAll());
 
-		//model.addAttribute("category", new Category());        
-        
 		// Return the view
-		return "admin/Categories";
+		return "admin/categories/Create";
 	}
 	
-	@RequestMapping(value = "admin/accounts", method = RequestMethod.GET)
-	public String adminViewAccountsPage(Model model){
+	//------------------------------------------------------------------------------
+
+	@RequestMapping(value = "/admin/categories/delete", method = RequestMethod.GET)
+
+	public String adminViewCategoryDeletionPage(Model model){
+		model.addAttribute("category", new Category());
+		
+		model.addAttribute("savedCategories", categoryService.findAll());
+		
+		return "admin/categories/Delete";
+	}
+	
+	@RequestMapping(value = "/admin/categories/delete", method = RequestMethod.POST)
+	public String adminDeleteCategory(@ModelAttribute("category") Category category,
+                                     Model model){
+
+		categoryService.delete(category.getId());  
+		
+
+		model.addAttribute("savedCategories", categoryService.findAll());
+        
+		// Return the view
+		return "admin/categories/Delete";
+	}
+	//------------------------------------------------------------------------------
+	
+	@RequestMapping(value = "/admin/accounts", method = RequestMethod.GET)
+	public String adminViewAccountPage(Model model){
 		model.addAttribute("account", new Account());
 		
 		model.addAttribute("savedAccounts", accountService.findAll());
@@ -68,35 +107,56 @@ public class AdminController {
 		return "admin/Accounts";
 	}
 	
-	@RequestMapping(value = "admin/accounts", method = RequestMethod.POST)
+	//------------------------------------------------------------------------------
+	
+	@RequestMapping(value = "/admin/accounts/create", method = RequestMethod.GET)
+	public String adminViewAccountCreationPage(Model model){
+		model.addAttribute("account", new Account());
+		
+		model.addAttribute("savedAccounts", accountService.findAll());
+		
+		return "admin/accounts/Create";
+	}
+	
+	@RequestMapping(value = "/admin/accounts/create", method = RequestMethod.POST)
 	public String adminCreateAccount(@ModelAttribute("account") Account account,
                                      Model model){
 
 		// Save the Category that we received from the form
 		accountService.save(account);
         
-		model.addAttribute("savedAccounts", accountService.findAll());
-
-		//model.addAttribute("category", new Category());        
+		model.addAttribute("savedAccounts", accountService.findAll());      
         
 		// Return the view
-		return "admin/Accounts";
+		return "admin/accounts/Create";
 	}
 	
-	/*@RequestMapping(value = "admin/accounts", method = RequestMethod.POST)
-	public String adminDeleteAccountWithUsername(@ModelAttribute("account") Account account,
+	//------------------------------------------------------------------------------
+	
+	@RequestMapping(value = "/admin/accounts/delete", method = RequestMethod.GET)
+	public String adminViewAccountDeletionPage(Model model){
+		model.addAttribute("account", new Account());
+		
+		model.addAttribute("savedAccounts", accountService.findAll());
+		
+		return "admin/accounts/Delete";
+	}
+	
+	@RequestMapping(value = "/admin/accounts/delete", method = RequestMethod.POST)
+	public String adminDeleteAccount(@ModelAttribute("account") Account account,
                                      Model model){
 
 		// Delete the Account that we receive
-		accountService.deleteWithUsername(account.getUsername());
+		accountService.delete(account.getUsername());
         
-		model.addAttribute("errorMessage", new ErrorMessage("Delete Successful!"));
-
-		//model.addAttribute("category", new Category());        
+		//model.addAttribute("savedAccounts", accountService.findAll());
+		
+		model.addAttribute("errorMessage", new ErrorMessage("Delete Successful!"));      
         
 		// Return the view
-		return "admin/Accounts";
-	}*/
+		return "admin/accounts/Delete";
+	}
 	
+	//------------------------------------------------------------------------------
 	
 }

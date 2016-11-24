@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import project.service.AccountService;
+import project.service.PostService;
 import project.persistence.entities.*;
 import javax.servlet.http.HttpSession;
 
@@ -16,10 +17,12 @@ public class UserController {
 
 	//Instance Variables
 	AccountService accountService;
+	PostService postService;
 	
     @Autowired
-    public UserController(AccountService accountService) {
+    public UserController(AccountService accountService, PostService postService) {
         this.accountService = accountService;
+        this.postService = postService;
     }
 
  // Request mapping is the path that you want to map this method to
@@ -27,25 +30,19 @@ public class UserController {
     // is running and you enter "localhost:8080" into a browser, this
     // method is called
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String visitorDisplayHome(){
+    public String visitorDisplayHome(Model model){
 
         // The string "Index" that is returned here is the name of the view
         // (the Index.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
         // If you change "Index" to something else, be sure you have a .jsp
         // file that has the same name
-        return "user/Index";
+    	model.addAttribute("post", new Post());
+    	
+		model.addAttribute("allPosts", postService.findAllReverseOrder());
+    	
+    	return "Index";
     }    
     
-    /*@RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String adminDisplayHome(){
-
-        // The string "Index" that is returned here is the name of the view
-        // (the Index.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
-        // If you change "Index" to something else, be sure you have a .jsp
-        // file that has the same name
-        return "admin/Index";
-    }
-    */
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String signupForm(Model model) {
         model.addAttribute("account", new Account());
@@ -64,7 +61,7 @@ public class UserController {
         //If the chosen username doesn't exist, create a new user.
         else {
             accountService.save(account);
-            return "user/Index";
+            return "Index";
         }
     }
 
@@ -80,14 +77,11 @@ public class UserController {
         //If the submitted username and password match, then log the user in.
         if(accountService.exists(account.getUsername())) {
         	if(accountService.login(account.getUsername(), account.getPassword())){
-        		
-        		//We also create an attribute in the session to indicate the user is logged.
-        		session.setAttribute("logged", new IsLogged(true));
-        		
+        		        		
         		//We associate the current session with the account object in the database.
         		session.setAttribute("account", accountService.findOne(account.getUsername()));
         		
-        		return "user/Index";
+        		return "Index";
         	}
         }
     	model.addAttribute("errorMessage", new ErrorMessage("Wrong user credentials, try again!"));

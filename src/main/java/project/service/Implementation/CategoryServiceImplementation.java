@@ -25,7 +25,11 @@ public class CategoryServiceImplementation implements CategoryService {
     public  Category save(Category category) {
         return repository.save(category);
     }
-
+    
+    public void delete(Long id){
+    	repository.delete(id);
+    }
+    
     @Override
     public List<Category> findAll() {
         return repository.findAll();

@@ -1,6 +1,7 @@
 package project.service;
 
 import project.persistence.entities.Post;
+import project.persistence.entities.Account;
 
 import java.util.List;
 
@@ -15,9 +16,9 @@ public interface PostService {
 
     /**
      * Delete {@link Post}
-     * @param Post {@link Post} to be deleted
+     * @param Post {@link Post.id} to be deleted
      */
-    void delete(Post post);
+    void delete(Long id);
 
     /**
      * Get all {@link Post}s
@@ -38,11 +39,7 @@ public interface PostService {
      */
     Post findOne(Long id);
 
-    /**
-     * Find all {@link Post}s with {@link String name}
-     * @param name {@link String}
-     * @return All {@link Post}s with the {@link String name} passed
-     */
-    //List<Post> findByName(String name);
+    
+    List<Post> findPostsByUsername(Account account);
 
 }

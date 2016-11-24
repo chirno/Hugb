@@ -13,6 +13,7 @@ public interface CategoryService{
      */
     Category save(Category category);
 
+    void delete(Long id);
     /**
      * Get all {@link Category}s
      * @return A list of {@link Category}s

@@ -1,20 +1,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:choose>
-        <c:when test="${not empty savedCategories}">
+        <c:when test="${not empty allPosts}">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Content</th>
+                            <th>Username</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="category" items="${savedCategories}">
+                        <c:forEach var="post" items="${allPosts}">
                             <tr>
-                                <td>${category.id}</td>                           
-                                <td>${category.name}</td>
+                                <td>${post.id}</td>                           
+                                <td>${post.category}</td>
+                                <td>${post.content}</td>                           
+                                <td>${post.account.username}</td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -23,6 +27,6 @@
             </div>
         </c:when>
         <c:otherwise>
-            <h3>No categories!</h3>
+            <h3>No Posts!</h3>
         </c:otherwise>
     </c:choose>

@@ -28,9 +28,7 @@
                             </tr>
                         </c:forEach>
                     </tbody>
-                    <tr>
-                        
-                    </tr>
+                    
                 </table>
              </div>
         </c:when>

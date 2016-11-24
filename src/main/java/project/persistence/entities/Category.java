@@ -1,5 +1,7 @@
 package project.persistence.entities;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,8 +10,12 @@ public class Category{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="category_id")
 	private Long id;
 	private String name;
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="account")
+    private List<Post> posts;
 	
 	  //--------------------Object creation-------------------------------
 	
@@ -41,7 +47,18 @@ public class Category{
 		this.name = name;
 	}
 	
-	//--------------------------------------------------------
+//----------------------Posts------------------------------------
+    
+    public List<Post> getPosts(){
+    	return posts;
+    }
+    
+    public void setPosts(List<Post> posts){
+    	this.posts = posts;
+    }
+   
+    //--------------------------------------------------------
+	//
 	
 	public String toString(){
     	return String.format(

@@ -3,6 +3,9 @@ package project.persistence.repositories;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import project.persistence.entities.Post;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import project.persistence.entities.Account;
 
 import java.util.List;
 
@@ -17,6 +20,13 @@ import java.util.List;
  */
 
 public interface PostRepository extends JpaRepository<Post, Long>{
+	
+	
+	/*---------------------Our own queries------------------------------------*/
+	
+	@Query("SELECT p FROM Post p WHERE p.account LIKE :account ")
+	List<Post> findPostsByUsername(@Param("account") Account account);
+	
 	
 	/*---------------------Inherited from CrudRepository---------------------*/
 	

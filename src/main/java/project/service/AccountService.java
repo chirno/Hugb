@@ -13,7 +13,7 @@ public interface AccountService{
      */
     Account save(Account entity);
     
-    void deleteWithUsername(String username);
+    void delete(String username);
 
     /**
      * Get all {@link Account}s

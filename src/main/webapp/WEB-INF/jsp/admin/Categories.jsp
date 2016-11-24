@@ -16,9 +16,16 @@
 
 	<jsp:include page="../navbars/AdminNavbar.jsp" />
 	
-	<h1>Create a new category by filling in this form.</h1>
-	
-	<jsp:include page="../forms/AdminCreateCategoryForm.jsp" />
+	<div class="row">
+  		<div class="col-sm-6">
+  			<h2>Click here to go to category creation.</h2>
+  			<button type="button" class="btn btn-default"><a href="/admin/categories/create">Category Creation</a></button>
+  		</div>
+  		<div class="col-sm-6">
+  			<h2>Click here to go to category deletion.</h2>
+  			<button type="button" class="btn btn-default"><a href="/admin/categories/delete">Category Deletion</a></button>
+  		</div>
+	</div>
     
     <h1>Existing categories</h1>
     

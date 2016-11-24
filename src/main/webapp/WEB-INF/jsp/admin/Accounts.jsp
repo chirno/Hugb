@@ -16,9 +16,20 @@
 
 	<jsp:include page="../navbars/AdminNavbar.jsp" />
 	
-	<h1>Create a new account by filling in this form.</h1>
+	<div class="row">
+  		<div class="col-sm-6">
+  			<h2>Click here to go to account creation.</h2>
+  			<button type="button" class="btn btn-default"><a href="/admin/accounts/create">Account Creation</a></button>
+  		</div>
+  		<div class="col-sm-6">
+  			<h2>Click here to go to account deletion.</h2>
+  			<button type="button" class="btn btn-default"><a href="/admin/accounts/delete">Account Deletion</a></button>
+  		</div>
+	</div>
 	
-	<jsp:include page="../forms/AdminCreateAccountForm.jsp" />
+	
+	
+	
     
     <h1>Existing accounts</h1>
     
