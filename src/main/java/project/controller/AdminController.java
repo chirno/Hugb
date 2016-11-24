@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import project.persistence.entities.*;
@@ -47,6 +48,7 @@ public class AdminController {
 		return "admin/Categories";
 	}
 	
+	
 	//------------------------------------------------------------------------------
 	
 	@RequestMapping(value = "/admin/categories/create", method = RequestMethod.GET)
@@ -62,7 +64,7 @@ public class AdminController {
 	@RequestMapping(value = "/admin/categories/create", method = RequestMethod.POST)
 	public String adminCreateCategory(@ModelAttribute("category") Category category,
                                      Model model){
-
+		model.addAttribute("category", new Category());
 		// Save the Category that we received from the form
 		categoryService.save(category);
         

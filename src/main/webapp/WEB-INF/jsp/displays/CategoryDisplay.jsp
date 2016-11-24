@@ -14,7 +14,7 @@
                         <c:forEach var="category" items="${savedCategories}">
                             <tr>
                                 <td>${category.id}</td>                           
-                                <td>${category.name}</td>
+                                <td><a href="/categories/${category.name}">${category.name}</td>
                             </tr>
                         </c:forEach>
                     </tbody>

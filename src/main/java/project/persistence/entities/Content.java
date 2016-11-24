@@ -1,98 +1,37 @@
 package project.persistence.entities;
 
+import javax.persistence.*;
+
 public class Content{
 	
-	private long id;
+	private String name;
+	private String content;
 	
-	private String[] comments;
-	private String email;
-	private String phone;
-	private double price;
-	private double rating;
-	private String title;
 	
 	public Content(){
 		
 	}
 	
-	public Content(	String[] comments, String email,
-					String phone, double price, double rating,
-					String title){
-		this.comments = comments;
-		this.email = email;
-		this.phone = phone;
-		this.price = price; 
-		this.rating = rating;
-		this.title = title;
+	public Content(String name, String content){
+		this.name = name;
+		this.content = content;
 	}
 	
-	public long getId(){
-		return id;
+	public String getName(){
+		return name;
 	}
 	
-	public void setId(long id){
-		this.id = id;
+	public void setName(String name){
+		this.name = name;
 	}
 	
-	public String[] getComments(){
-		return comments;
+	public String getContent(){
+		return content;
 	}
 	
-	public void setComments(String[] comments){
-		this.comments = comments;
+	public void setContent(String content){
+		this.content = content;
 	}
 	
 	
-	public String getEmail(){
-		return email;
-	}
-	
-	public void setEmail(String email){
-		this.email=email;
-	}
-	
-	public String getPhone(){
-		return phone;
-	}
-	
-	public void setPhone(String phone){
-		this.phone = phone;
-	}
-	
-	public Double getPrice(){
-		return price;
-	}
-	
-	public void setPrice(double price){
-		this.price = price;
-	}
-	
-	public Double getRating(){
-		return rating;
-	}
-	
-	public void setRating(double rating){
-		this.rating = rating;
-	}
-	
-	public String getTitle(){
-		return title;
-	}
-	
-	public void setTitle(String title){
-		this.title = title;
-	}
-	
-	public String toString(){
-    	return String.format(
-    			"Content[\n\t"
-    			+ "comments=%s,\n\t"
-    			+ "email=%s,\n\t"
-    			+ "phone=%s,\n\t"
-    			+ "price=%s\n\t"
-    			+ "rating=%d\n\t"
-    			+ "title=%s\n\t"
-    			+ "]", 
-    			comments, email, phone, price, rating, title);
-    }
 }

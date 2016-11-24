@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import project.persistence.entities.*;
 import project.service.AccountService;
 import project.service.PostService;
-
+import project.service.CategoryService;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -20,12 +20,14 @@ public class AccountController {
 	//Instance Variables
 		AccountService accountService;
 		PostService postService;
+		CategoryService categoryService;
 
 		//Dependency Injection
 		@Autowired
-		public AccountController(AccountService accountService, PostService postService) {
+		public AccountController(AccountService accountService, PostService postService, CategoryService categoryService) {
 	        this.accountService = accountService;
 	        this.postService = postService;
+	        this.categoryService = categoryService;
 	    }
 		
 		//------------------------------------------------------------------------------
@@ -41,25 +43,13 @@ public class AccountController {
 	    
 	  //------------------------------------------------------------------------------
 	    
-	    /*@RequestMapping(value = "/account", method = RequestMethod.GET)
-
-		public String adminViewCategoriesPage(Model model){
-			model.addAttribute("category", new Category());
-			
-			model.addAttribute("savedCategories", categoryService.findAll());
-			
-			return "admin/Categories";
-		} */
-	    
-	  //------------------------------------------------------------------------------
-	    
 	    @RequestMapping(value = "/account/posts", method = RequestMethod.GET)
 
 		public String accountViewPostPage(Model model, HttpSession session){
 			model.addAttribute("post", new Post());
 
 			Account temp = new Account((Account)session.getAttribute("account"));
-			model.addAttribute("myPosts", postService.findPostsByUsername(temp));
+			model.addAttribute("myPosts", postService.findPostsByAccount(temp));
 			
 			return "account/Posts";
 		}
@@ -70,9 +60,10 @@ public class AccountController {
 
 		public String accountViewPostCreationPage(Model model, HttpSession session){
 			model.addAttribute("post", new Post());
+			model.addAttribute("content", new Content());
 			
 			Account temp = new Account((Account)session.getAttribute("account"));
-			model.addAttribute("myPosts", postService.findPostsByUsername(temp));
+			model.addAttribute("myPosts", postService.findPostsByAccount(temp));
 			
 			return "account/posts/Create";
 		}
@@ -80,14 +71,18 @@ public class AccountController {
 	  //------------------------------------------------------------------------------
 	    
 	    @RequestMapping(value = "/account/posts/create", method = RequestMethod.POST)
-		public String accountCreatePost(@ModelAttribute("post") Post post,
-	                                     Model model, HttpSession session){
-	    	post.setAccount((Account)session.getAttribute("account"));
-			// Save the Category that we received from the form
-			postService.save(post);
+		public String accountCreatePost(@ModelAttribute("content") Content content, Model model, HttpSession session){
+	    	model.addAttribute("content", new Content());
+	    	
+	    	Category tempCategory = categoryService.findCategoryByName(content.getName());
+			Account tempAccount = new Account((Account)session.getAttribute("account"));
+		
+			Post ourPost = new Post(content.getContent());
+			ourPost.setAccount(tempAccount);
+			ourPost.setCategory(tempCategory);
+	    	postService.save(ourPost);
 
-			Account temp = new Account((Account)session.getAttribute("account"));
-			model.addAttribute("myPosts", postService.findPostsByUsername(temp));
+			model.addAttribute("myPosts", postService.findPostsByAccount(tempAccount));
 			
 			// Return the view
 			return "account/posts/Create";
@@ -101,7 +96,7 @@ public class AccountController {
 			model.addAttribute("post", new Post());
 
 			Account temp = new Account((Account)session.getAttribute("account"));
-			model.addAttribute("myPosts", postService.findPostsByUsername(temp));
+			model.addAttribute("myPosts", postService.findPostsByAccount(temp));
 			
 			return "account/posts/Delete";
 		}
@@ -116,7 +111,7 @@ public class AccountController {
 			postService.delete(post.getId());
 
 			Account temp = new Account((Account)session.getAttribute("account"));
-			model.addAttribute("myPosts", postService.findPostsByUsername(temp));
+			model.addAttribute("myPosts", postService.findPostsByAccount(temp));
 			
 			// Return the view
 			return "account/posts/Delete";

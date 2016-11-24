@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.persistence.entities.Post;
 import project.persistence.entities.Account;
+import project.persistence.entities.Category;
 import project.persistence.repositories.PostRepository;
 import project.service.PostService;
 
@@ -54,8 +55,16 @@ public class PostServiceImplementation implements PostService {
     }
     
     @Override
-    public List<Post> findPostsByUsername(Account account){
-    	List<Post> posts = repository.findPostsByUsername(account);
+    public List<Post> findPostsByAccount(Account account){
+    	List<Post> posts = repository.findPostsByAccount(account);
+    	
+    	Collections.reverse(posts);
+    	
+    	return posts;
+    }
+    @Override
+    public List<Post> findPostsByCategory(Category category){
+    	List<Post> posts = repository.findPostsByCategory(category);
     	
     	Collections.reverse(posts);
     	

@@ -19,9 +19,6 @@ import java.util.List;
 
 public interface AccountRepository extends JpaRepository<Account, String>{
 	
-	/*---------------------Our written queries-------------------------------*/
-	
-	
 	
 	/*---------------------Inherited from CrudRepository---------------------*/
 	

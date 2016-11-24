@@ -16,9 +16,9 @@
                         <c:forEach var="post" items="${allPosts}">
                             <tr>
                                 <td>${post.id}</td>                           
-                                <td>${post.category}</td>
+                                <td>${post.category.name}</td>
                                 <td>${post.content}</td>                           
-                                <td>${post.account.username}</td>
+                                <td>${post.account.username}</td> 
                             </tr>
                         </c:forEach>
                     </tbody>

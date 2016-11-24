@@ -16,7 +16,7 @@
                         <c:forEach var="post" items="${myPosts}">
                             <tr>
                                 <td>${post.id}</td>                           
-                                <td>${post.category}</td>
+                                <td>${post.category.name}</td>
                                 <td>${post.content}</td>                           
                                 
                             </tr>

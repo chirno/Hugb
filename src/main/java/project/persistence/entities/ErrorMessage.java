@@ -1,7 +1,5 @@
 package project.persistence.entities;
 
-import javax.persistence.*;
-
 public class ErrorMessage{
 	
 	private String errorMessage;

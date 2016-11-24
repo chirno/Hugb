@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -36,7 +37,7 @@ public class UserController {
         // (the Index.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
         // If you change "Index" to something else, be sure you have a .jsp
         // file that has the same name
-    	model.addAttribute("post", new Post());
+    	
     	
 		model.addAttribute("allPosts", postService.findAllReverseOrder());
     	
@@ -87,4 +88,6 @@ public class UserController {
     	model.addAttribute("errorMessage", new ErrorMessage("Wrong user credentials, try again!"));
         return "user/Login";
     }
+    
+    
 }

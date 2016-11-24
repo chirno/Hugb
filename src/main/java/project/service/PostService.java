@@ -2,6 +2,7 @@ package project.service;
 
 import project.persistence.entities.Post;
 import project.persistence.entities.Account;
+import project.persistence.entities.Category;
 
 import java.util.List;
 
@@ -40,6 +41,8 @@ public interface PostService {
     Post findOne(Long id);
 
     
-    List<Post> findPostsByUsername(Account account);
+    List<Post> findPostsByAccount(Account account);
+    
+    List<Post> findPostsByCategory(Category category);
 
 }

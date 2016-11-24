@@ -2,7 +2,12 @@ package project.persistence.repositories;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import project.persistence.entities.Account;
 import project.persistence.entities.Category;
+import project.persistence.entities.Post;
 
 import java.util.List;
 
@@ -17,6 +22,11 @@ import java.util.List;
  */
 
 public interface CategoryRepository extends JpaRepository<Category, Long>{
+	
+	/*---------------------Our own queries------------------------------------*/
+	
+	@Query("SELECT p FROM Category p WHERE p.name LIKE :name ")
+	Category findCategoryByName(@Param("name") String name);
 	
 	/*---------------------Inherited from CrudRepository---------------------*/
 	

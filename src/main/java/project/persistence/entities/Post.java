@@ -9,7 +9,8 @@ public class Post{
 	// Declare that this attribute is the id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name = "post_id")
+    private Long id;
 	
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="username")
@@ -17,7 +18,7 @@ public class Post{
     
     
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="category_id")
+    @JoinColumn(name="id")
 	private Category category;
     
 	private String content;
@@ -26,8 +27,7 @@ public class Post{
 		
 	}
 	
-	public Post(Category category, String content){
-		this.category = category;
+	public Post(String content){
 		this.content = content;
 	}
 	

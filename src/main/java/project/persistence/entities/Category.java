@@ -10,7 +10,6 @@ public class Category{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="category_id")
 	private Long id;
 	private String name;
 	
@@ -60,10 +59,5 @@ public class Category{
     //--------------------------------------------------------
 	//
 	
-	public String toString(){
-    	return String.format(
-    			"Category[id=%d"
-    			+ ",name=%s]", 
-    			id, name);
-    }
+
 }

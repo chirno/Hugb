@@ -19,4 +19,6 @@ public interface CategoryService{
      * @return A list of {@link Category}s
      */
     List<Category> findAll();
+    
+    Category findCategoryByName(String name);
 }
