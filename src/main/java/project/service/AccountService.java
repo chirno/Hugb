@@ -11,9 +11,9 @@ public interface AccountService{
      * @param Account {@link Account} to be saved
      * @return {@link Account} that was saved
      */
-    Account save(Account entity);
+    boolean save(Account entity);
     
-    void delete(String username);
+    boolean delete(String username);
 
     /**
      * Get all {@link Account}s

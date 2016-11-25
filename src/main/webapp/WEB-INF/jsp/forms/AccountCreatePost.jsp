@@ -3,11 +3,11 @@
 <table>
 	<tr>
 		<td>Name:</td>
-		<td><sf:input class="form-control" path="name" type="text" placeholder="Enter content here" required="required"/></td>
+		<td><sf:input class="form-control" path="categoryName" type="text" placeholder="Enter category name here" required="required"/></td>
 	</tr>
 	<tr>
 		<td>Content:</td>
-		<td><sf:textarea class="form-control" path="content" type="text" placeholder="Enter content here" required="required"/></td>
+		<td><sf:textarea class="form-control" path="postContent" type="text" placeholder="Enter post content here" required="required"/></td>
 	</tr>
 </table>
 <br>

@@ -13,13 +13,15 @@ public interface PostService {
      * @param Post {@link Post} to be saved
      * @return {@link Post} that was saved
      */
-    Post save(Post post);
+    boolean save(Post post);
 
     /**
      * Delete {@link Post}
      * @param Post {@link Post.id} to be deleted
      */
-    void delete(Long id);
+    boolean delete(Long id);
+    
+    boolean exists(Long id);
 
     /**
      * Get all {@link Post}s

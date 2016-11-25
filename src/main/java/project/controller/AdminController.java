@@ -66,8 +66,9 @@ public class AdminController {
                                      Model model){
 		model.addAttribute("category", new Category());
 		// Save the Category that we received from the form
-		categoryService.save(category);
-        
+		if(!categoryService.save(category)){
+			model.addAttribute("errorMessage", new ErrorMessage("Creation failed!"));
+		}
 		model.addAttribute("savedCategories", categoryService.findAll());
 
 		// Return the view
@@ -89,9 +90,10 @@ public class AdminController {
 	@RequestMapping(value = "/admin/categories/delete", method = RequestMethod.POST)
 	public String adminDeleteCategory(@ModelAttribute("category") Category category,
                                      Model model){
-
-		categoryService.delete(category.getId());  
 		
+		if(!categoryService.delete(category.getId())){
+			model.addAttribute("errorMessage", new ErrorMessage("Deletion failed!"));
+		}
 
 		model.addAttribute("savedCategories", categoryService.findAll());
         
@@ -125,7 +127,9 @@ public class AdminController {
                                      Model model){
 
 		// Save the Category that we received from the form
-		accountService.save(account);
+		if(!accountService.save(account)){
+			model.addAttribute("errorMessage", new ErrorMessage("Creation failed!"));
+		}
         
 		model.addAttribute("savedAccounts", accountService.findAll());      
         
@@ -149,11 +153,13 @@ public class AdminController {
                                      Model model){
 
 		// Delete the Account that we receive
-		accountService.delete(account.getUsername());
+		if(accountService.delete(account.getUsername())){
+			model.addAttribute("errorMessage", new ErrorMessage("Delete Successful!"));  
+		}
         
-		//model.addAttribute("savedAccounts", accountService.findAll());
+		model.addAttribute("savedAccounts", accountService.findAll());
 		
-		model.addAttribute("errorMessage", new ErrorMessage("Delete Successful!"));      
+		    
         
 		// Return the view
 		return "admin/accounts/Delete";

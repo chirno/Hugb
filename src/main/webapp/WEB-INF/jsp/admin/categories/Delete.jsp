@@ -20,6 +20,7 @@
 	
 	<jsp:include page="../../forms/AdminDeleteCategoryForm.jsp" />
     
+    
     <h1>Existing categories</h1>
     
     <jsp:include page="../../displays/CategoryDisplay.jsp" />

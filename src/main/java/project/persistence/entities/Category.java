@@ -13,7 +13,7 @@ public class Category{
 	private Long id;
 	private String name;
 	
-	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="account")
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="category")
     private List<Post> posts;
 	
 	  //--------------------Object creation-------------------------------

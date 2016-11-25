@@ -22,12 +22,29 @@ public class CategoryServiceImplementation implements CategoryService {
     }
 
     @Override
-    public  Category save(Category category) {
-        return repository.save(category);
+    public  boolean save(Category category) {
+        if(!this.exists(category.getId())){
+        	repository.save(category);
+        	return true;
+        }
+        return false;
     }
     
-    public void delete(Long id){
-    	repository.delete(id);
+    @Override
+    public boolean delete(Long id){
+    	if(this.exists(id)){
+    		repository.delete(id);
+    		return true;
+    	}
+    	return false;
+    }
+    
+    @Override
+    public boolean exists(Long id){
+    	if(id == null){
+    		return false;
+    	}
+    	return repository.exists(id);
     }
     
     @Override

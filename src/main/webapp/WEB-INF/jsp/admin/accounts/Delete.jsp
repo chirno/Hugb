@@ -20,6 +20,7 @@
 	
 	<jsp:include page="../../forms/AdminDeleteAccountForm.jsp" />	
     
+    
     <h1>Existing accounts</h1>
     
     <jsp:include page="../../displays/AccountDisplay.jsp" />

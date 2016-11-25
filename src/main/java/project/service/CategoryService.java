@@ -11,9 +11,11 @@ public interface CategoryService{
      * @param Category {@link Category} to be saved
      * @return {@link Category} that was saved
      */
-    Category save(Category category);
+    boolean save(Category category);
 
-    void delete(Long id);
+    boolean exists(Long id);
+    
+    boolean delete(Long id);
     /**
      * Get all {@link Category}s
      * @return A list of {@link Category}s

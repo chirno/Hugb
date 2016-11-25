@@ -54,7 +54,11 @@ public class UserController {
    @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String signupSubmit(@ModelAttribute Account account, Model model) {
         //If the chosen username already exists, do nothing but inform the user that the signup failed.
-        if(accountService.exists(account.getUsername())) {
+       
+
+		model.addAttribute("allPosts", postService.findAllReverseOrder());
+	   
+	   if(accountService.exists(account.getUsername())) {
         	model.addAttribute("errorMessage", new ErrorMessage("That username is taken, please try again!"));
 
             return "user/Signup";
@@ -76,7 +80,11 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginSubmit(@ModelAttribute Account account, Model model,HttpSession session) {
         //If the submitted username and password match, then log the user in.
-        if(accountService.exists(account.getUsername())) {
+       
+
+		model.addAttribute("allPosts", postService.findAllReverseOrder());
+    	
+    	if(accountService.exists(account.getUsername())) {
         	if(accountService.login(account.getUsername(), account.getPassword())){
         		        		
         		//We associate the current session with the account object in the database.

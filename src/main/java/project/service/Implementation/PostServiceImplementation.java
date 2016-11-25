@@ -24,15 +24,31 @@ public class PostServiceImplementation implements PostService {
     }
 
     @Override
-    public  Post save(Post post) {
-        return repository.save(post);
+    public  boolean save(Post post) {
+        if(!this.exists(post.getId())){
+        	repository.save(post);
+        	return true;
+        }
+        return false;
     }
 
     @Override
-    public void delete(Long id) {
-        repository.delete(id);
+    public boolean delete(Long id) {
+    	if(this.exists(id)){
+        	repository.delete(id);
+        	return true;
+        }
+        return false;
     }
 
+    @Override
+    public boolean exists(Long id) {
+        if(id == null){
+        	return false;
+        }
+    	return repository.exists(id);
+    }
+    
     @Override
     public List<Post> findAll() {
         return repository.findAll();

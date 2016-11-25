@@ -34,9 +34,12 @@ public class AccountController {
 
 		//This method delegates the task of logging in a user to the userService class.
 	    @RequestMapping(value = "/logout", method = RequestMethod.GET)
-	    public String userLogout(HttpSession session) {
+	    public String userLogout(HttpSession session, Model model) {
 	        //If the submitted username and password match, then log the user in.
 	        
+	    	
+
+			model.addAttribute("allPosts", postService.findAllReverseOrder());
 	    	session.invalidate();
 	    	return "Index";
 	    }
@@ -74,10 +77,10 @@ public class AccountController {
 		public String accountCreatePost(@ModelAttribute("content") Content content, Model model, HttpSession session){
 	    	model.addAttribute("content", new Content());
 	    	
-	    	Category tempCategory = categoryService.findCategoryByName(content.getName());
+	    	Category tempCategory = categoryService.findCategoryByName(content.getCategoryName());
 			Account tempAccount = new Account((Account)session.getAttribute("account"));
 		
-			Post ourPost = new Post(content.getContent());
+			Post ourPost = new Post(content.getPostContent());
 			ourPost.setAccount(tempAccount);
 			ourPost.setCategory(tempCategory);
 	    	postService.save(ourPost);

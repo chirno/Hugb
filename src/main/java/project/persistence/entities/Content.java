@@ -1,36 +1,35 @@
 package project.persistence.entities;
 
-import javax.persistence.*;
 
 public class Content{
 	
-	private String name;
-	private String content;
+	private String categoryName;
+	private String postContent;
 	
 	
 	public Content(){
 		
 	}
 	
-	public Content(String name, String content){
-		this.name = name;
-		this.content = content;
+	public Content(String categoryName, String postContent){
+		this.categoryName = categoryName;
+		this.postContent = postContent;
 	}
 	
-	public String getName(){
-		return name;
+	public String getCategoryName(){
+		return categoryName;
 	}
 	
-	public void setName(String name){
-		this.name = name;
+	public void setCategoryName(String categoryName){
+		this.categoryName = categoryName;
 	}
 	
-	public String getContent(){
-		return content;
+	public String getPostContent(){
+		return postContent;
 	}
 	
-	public void setContent(String content){
-		this.content = content;
+	public void setPostContent(String postContent){
+		this.postContent = postContent;
 	}
 	
 	

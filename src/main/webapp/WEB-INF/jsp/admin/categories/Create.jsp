@@ -20,6 +20,7 @@
 	
 	<jsp:include page="../../forms/AdminCreateCategoryForm.jsp" />
     
+    
     <h1>Existing categories</h1>
     
     <jsp:include page="../../displays/CategoryDisplay.jsp" />

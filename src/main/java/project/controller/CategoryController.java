@@ -17,7 +17,7 @@ import project.service.PostService;
 @Controller
 public class CategoryController {
 
-	//Instance Variables
+	/*//Instance Variables
 	CategoryService categoryService;
 	PostService postService;
 
@@ -47,5 +47,5 @@ public class CategoryController {
 		model.addAttribute("allPosts", postService.findPostsByCategory(temp));
 		
 		return "categories/Posts";
-	}
+	}*/
 }

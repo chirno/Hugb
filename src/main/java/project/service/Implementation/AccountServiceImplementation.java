@@ -23,13 +23,21 @@ public class AccountServiceImplementation implements AccountService {
     }
 
     @Override
-    public  Account save(Account entity) {
-        return repository.save(entity);
+    public boolean save(Account entity) {
+        if(!this.exists(entity.getUsername())){
+        	repository.save(entity);
+        	return true;
+        }
+        return false;
     }
     
     @Override
-    public void delete(String username){
-    	repository.delete(username);
+    public boolean delete(String username){
+    	if(this.exists(username)){
+    		repository.delete(username);
+    		return true;
+    	}
+    	return false;
     }
 
     @Override
@@ -38,10 +46,10 @@ public class AccountServiceImplementation implements AccountService {
     }
     
     public boolean exists(String username){
-    	if(repository.exists(username)){
-    		return true;
+    	if(username == null){
+    		return false;
     	}
-    	return false;
+    	return repository.exists(username);
     }
     
     public boolean login(String username, String password){
